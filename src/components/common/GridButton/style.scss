@@ -1,0 +1,21 @@
+.gridButton {
+  @apply inline-block;
+  @apply uppercase;
+  @apply font-bold;
+  @apply h-8;                     // 32px height
+  @apply border;
+ color: #3f0000 !important;
+  
+  @apply transition duration-150 ease-in-out;
+  @apply cursor-pointer;
+padding: 5px;
+border-width: 2px;
+border-color: #ffd64b;
+    text-transform: uppercase;
+    font-size: 12px;
+  /* Gradient background + position + repeat */
+  background: linear-gradient(1deg, #956a1a, #ffd746);
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  font-weight: 700;
+}

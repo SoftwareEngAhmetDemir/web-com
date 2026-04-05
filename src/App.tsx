@@ -8,8 +8,10 @@ import Announcements from "./components/Announcements.tsx";
 import FacebookWidget from "./components/FacebookWidget.tsx";
 import DownloadBanner from "./components/DownloadBanner.tsx";
 import Footer from "./components/Footer.tsx";
-import "./index.css";
 import RouteComp from "./routes/index.tsx";
+import RegisterForm from "./components/RegisterForm/RegisterForm.tsx";
+import ForgetPinForm from "./components/PinForgotPassword/PinForgotPassword.tsx";
+import ForgetPasswordForm from "./components/ForgotPassword/ForgotPassword.tsx";
 
 export default function App() {
   const [lang, setLang] = useState("TR");
@@ -44,8 +46,9 @@ export default function App() {
        
         {/* Center Content */}
         <main className="content">
-          <FacebookWidget />
-          <Announcements />
+          {/* <RegisterForm /> */}
+          {/* <ForgetPinForm/> */}
+          <ForgetPasswordForm/>
         </main>
 
         {/* Right Sidebar */}

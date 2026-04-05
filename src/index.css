@@ -5,14 +5,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
-*,
-*::before,
-*::after {
+body,
+html{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+ 
 }
-
+:where(*) {
+  @apply text-[#ffd73e];
+}
 :root {
   --gold: #c9a84c;
   --gold-light: #e8cc7a;
@@ -65,18 +67,30 @@
 body {
   background: var(--bg-deep);
   color: var(--text-primary);
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background:
-    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201, 168, 76, 0.015) 40px, rgba(201, 168, 76, 0.015) 41px),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201, 168, 76, 0.015) 40px, rgba(201, 168, 76, 0.015) 41px);
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(201, 168, 76, 0.015) 40px,
+      rgba(201, 168, 76, 0.015) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(201, 168, 76, 0.015) 40px,
+      rgba(201, 168, 76, 0.015) 41px
+    );
   pointer-events: none;
   z-index: 0;
 }
@@ -90,12 +104,24 @@ body::before {
 
 /* ─── Hero Lines ─── */
 .hero-line {
-  background: linear-gradient(90deg, transparent, rgba(139, 26, 26, 0.6), rgba(201, 168, 76, 0.3), rgba(139, 26, 26, 0.6), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 26, 26, 0.6),
+    rgba(201, 168, 76, 0.3),
+    rgba(139, 26, 26, 0.6),
+    transparent
+  );
   height: 2px;
   width: 100%;
 }
 .hero-line2 {
-  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 76, 0.2),
+    transparent
+  );
   height: 1px;
   width: 100%;
   margin-top: 4px;
@@ -117,7 +143,7 @@ body::before {
   background: transparent;
   color: var(--text-dim);
   cursor: pointer;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   transition: all 0.2s;
   border-radius: 1px;
 }
@@ -130,14 +156,13 @@ body::before {
 /* ─── Main Layout ─── */
 .main-layout {
   display: grid;
-  grid-template-columns: 260px 1fr 260px;
+  grid-template-columns: 2fr 4.5fr 2fr; /* left 4, middle 1, right 4? */
   position: relative;
   z-index: 1;
 }
 
 /* ─── Sidebar ─── */
 .sidebar {
-  padding: 20px 16px;
   border-right: 1px solid var(--border-gold);
 }
 .sidebar.right {
@@ -155,10 +180,14 @@ body::before {
 .card-header {
   padding: 12px 16px 10px;
   border-bottom: 1px solid var(--border-gold);
-  background: linear-gradient(180deg, rgba(201, 168, 76, 0.08) 0%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(201, 168, 76, 0.08) 0%,
+    transparent 100%
+  );
 }
 .card-header h3 {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 12px;
   color: var(--gold);
   letter-spacing: 3px;
@@ -179,7 +208,7 @@ body::before {
   color: var(--text-primary);
   padding: 9px 12px;
   font-size: 12px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   outline: none;
   transition: border 0.2s;
 }
@@ -199,7 +228,7 @@ body::before {
   gap: 10px;
   margin: 10px 0;
 }
-.captcha-mock input[type='checkbox'] {
+.captcha-mock input[type="checkbox"] {
   accent-color: var(--crimson-bright);
   width: 16px;
   height: 16px;
@@ -215,7 +244,7 @@ body::before {
   background: linear-gradient(180deg, #8b1a1a 0%, #5a0e0e 100%);
   border: 1px solid #a02020;
   color: #f5c5c5;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 12px;
   letter-spacing: 3px;
   cursor: pointer;
@@ -277,7 +306,7 @@ body::before {
   color: var(--gold);
   font-size: 11px;
   text-align: right;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 .btn-more {
   display: block;
@@ -289,7 +318,7 @@ body::before {
   border: 1px solid var(--border-gold);
   color: var(--text-dim);
   font-size: 11px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   letter-spacing: 2px;
   cursor: pointer;
   text-decoration: none;
@@ -328,7 +357,7 @@ body::before {
   text-align: center;
   font-size: 11px;
   letter-spacing: 2px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   border: 1px solid var(--border-gold);
   cursor: pointer;
   transition: all 0.2s;
@@ -363,7 +392,7 @@ body::before {
 }
 .section-header::before,
 .section-header::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--border-gold));
@@ -372,7 +401,7 @@ body::before {
   background: linear-gradient(90deg, var(--border-gold), transparent);
 }
 .section-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 13px;
   color: var(--gold);
   letter-spacing: 4px;
@@ -391,7 +420,7 @@ body::before {
   padding: 40px 20px;
   color: var(--text-dim);
   font-size: 13px;
-  font-family: 'Crimson Pro', serif;
+  font-family: "Crimson Pro", serif;
   font-style: italic;
   letter-spacing: 1px;
 }
@@ -457,10 +486,15 @@ body::before {
   overflow: hidden;
 }
 .dl-banner::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 30%, rgba(192, 57, 43, 0.08) 50%, transparent 70%);
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(192, 57, 43, 0.08) 50%,
+    transparent 70%
+  );
   transition: transform 0.4s;
 }
 .dl-banner:hover::before {
@@ -472,7 +506,7 @@ body::before {
   display: block;
 }
 .dl-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 14px;
   color: #e88;
   letter-spacing: 4px;
@@ -497,7 +531,7 @@ body::before {
   color: var(--text-dim);
 }
 .stat-value {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 16px;
   color: var(--gold-light);
   font-weight: 600;
@@ -540,7 +574,7 @@ footer {
   color: var(--gold);
 }
 .footer-logo {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 18px;
   color: var(--gold-dim);
   letter-spacing: 6px;
@@ -554,7 +588,7 @@ footer {
   color: var(--text-dim);
   letter-spacing: 1px;
 }
-body{
+body {
   background-image: url(https://capomt2.com/web/assets/ThemeFifteen/images/headerBG.jpg) !important;
   background-size: cover 100% !important;
   background-repeat: no-repeat !important;
@@ -563,7 +597,7 @@ body{
 
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
+  --font-sans: "Geist Variable", sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
