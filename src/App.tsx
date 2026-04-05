@@ -12,6 +12,7 @@ import RouteComp from "./routes/index.tsx";
 import RegisterForm from "./components/RegisterForm/RegisterForm.tsx";
 import ForgetPinForm from "./components/PinForgotPassword/PinForgotPassword.tsx";
 import ForgetPasswordForm from "./components/ForgotPassword/ForgotPassword.tsx";
+import TawkWidget from "./components/TawkWidget/TawkWidget.tsx";
 
 export default function App() {
   const [lang, setLang] = useState("TR");
@@ -60,6 +61,7 @@ export default function App() {
       </div>
 
       <Footer />
+     <TawkWidget/>
     </div>
   );
 }
