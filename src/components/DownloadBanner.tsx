@@ -2,10 +2,9 @@ import React from "react";
 
 export default function DownloadBanner() {
   return (
-    <a href="/download" className="dl-banner" style={{ textDecoration: "none", display: "block" }}>
-      <span className="dl-icon">⬇</span>
-      <div className="dl-title">İNDİR</div>
-      <div className="dl-sub">Download Client</div>
-    </a>
+   <div className="card">
+    <a href="https://capomt2.com/web/Download" className="btn-hover">
+    <img src="https://capomt2.com/web/assets/ThemeFifteen/images/download.png" alt="İndir"/></a>
+  </div>
   );
 }

@@ -3,6 +3,12 @@
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
 
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
 
 body,
@@ -171,31 +177,7 @@ body::before {
 }
 
 /* ─── Cards ─── */
-.card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-.card-header {
-  padding: 12px 16px 10px;
-  border-bottom: 1px solid var(--border-gold);
-  background: linear-gradient(
-    180deg,
-    rgba(201, 168, 76, 0.08) 0%,
-    transparent 100%
-  );
-}
-.card-header h3 {
-  font-family: "Cinzel", serif;
-  font-size: 12px;
-  color: var(--gold);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.card-body {
-  padding: 16px;
-}
+
 
 /* ─── Form / Login ─── */
 .form-field {

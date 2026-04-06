@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
-import GuildRanking from "./components/GuildRanking.tsx";
-import PlayerRanking from "./components/PlayerRanking.tsx";
+import List from "./components/common/List/List.tsx";
 import StatsCard from "./components/StatsCard.tsx";
 import Announcements from "./components/Announcements.tsx";
 import FacebookWidget from "./components/FacebookWidget.tsx";
@@ -13,13 +12,15 @@ import RegisterForm from "./components/RegisterForm/RegisterForm.tsx";
 import ForgetPinForm from "./components/PinForgotPassword/PinForgotPassword.tsx";
 import ForgetPasswordForm from "./components/ForgotPassword/ForgotPassword.tsx";
 import TawkWidget from "./components/TawkWidget/TawkWidget.tsx";
+import { GuildList } from "./components/GuildList/GuildList.tsx";
+import { PlayerRanking } from "./components/PlayerRanking/PlayerRanking.tsx";
 
 export default function App() {
   const [lang, setLang] = useState("TR");
 
   return (
     <div className="site-wrap">
-      <RouteComp/>
+      <RouteComp />
       {/* Language Picker */}
       {/* <div className="lang-bar">
         {["TR", "EN"].map((l) => (
@@ -32,7 +33,7 @@ export default function App() {
           </button>
         ))}
       </div> */}
- 
+
       <div className="hero-line" />
       <div className="hero-line2" />
 
@@ -42,14 +43,14 @@ export default function App() {
         {/* Left Sidebar */}
         <aside className="sidebar">
           <LoginForm />
-          <GuildRanking />
+         <GuildList/>
         </aside>
-       
+
         {/* Center Content */}
         <main className="content">
           {/* <RegisterForm /> */}
           {/* <ForgetPinForm/> */}
-          <ForgetPasswordForm/>
+          <ForgetPasswordForm />
         </main>
 
         {/* Right Sidebar */}
@@ -61,7 +62,7 @@ export default function App() {
       </div>
 
       <Footer />
-     <TawkWidget/>
+      <TawkWidget />
     </div>
   );
 }

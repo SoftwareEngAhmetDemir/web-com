@@ -36,11 +36,18 @@ export default function LoginForm() {
     }
   ];
   return (
-    <div className="p-3">
+    <>
       <RedCard text="LOG IN" />
-      <CustomForm fields={fields} submitText="LOG IN" onSubmit={handleLogin} />
+      <div className="mb-4"></div>
+      <div className="p-2">
+        <CustomForm
+          fields={fields}
+          submitText="LOG IN"
+          onSubmit={handleLogin}
+        />
+      </div>
       <div>Register | Forgot Password</div>
       <div>Pin Forgot Password</div>
-    </div>
+    </>
   );
 }

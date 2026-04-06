@@ -3,7 +3,6 @@ import React from "react";
 import { CustomInput } from "../Input/CustomInput";
 import { GridButton } from "../GridButton/GridButton";
 
-
 export type FormField = {
   name: string;
   type: string;
@@ -25,7 +24,7 @@ interface CustomFormProps {
 export const CustomForm: React.FC<CustomFormProps> = ({
   fields,
   onSubmit,
-  submitText = "Submit",
+  submitText = "Submit"
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +35,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
       if (field.isCheckbox) {
         data[field.name] = (formData.get(field.name) as string | null) === "on";
       } else {
-        data[field.name] = (formData.get(field.name)?.toString().trim() || "");
+        data[field.name] = formData.get(field.name)?.toString().trim() || "";
       }
     });
 
@@ -44,53 +43,54 @@ export const CustomForm: React.FC<CustomFormProps> = ({
   };
 
   return (
-    <div className="p-3">
-
-      <Form.Root onSubmit={handleSubmit} className="space-y-4 p-4">
-        {fields.map((field) => (
-          <Form.Field key={field.name} name={field.name} className="flex flex-col gap-1">
-            {field.type === "select" ? (
-              <select
+    <Form.Root onSubmit={handleSubmit} className="space-y-4">
+      {fields.map((field) => (
+        <Form.Field
+          key={field.name}
+          name={field.name}
+          className="flex flex-col gap-1"
+        >
+          {field.type === "select" ? (
+            <select
+              name={field.name}
+              required={field.required}
+              className="block w-full border border-gray-400 rounded px-3 py-2 text-black"
+            >
+              {field.options?.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+          ) : field.isCheckbox ? (
+            <div className="flex items-center gap-2">
+              <input type="checkbox" name={field.name} />
+              <label>{field.placeholder}</label>
+            </div>
+          ) : (
+            <Form.Control asChild>
+              <CustomInput
+                type={field.type}
                 name={field.name}
+                placeholder={field.placeholder}
                 required={field.required}
-                className="block w-full border border-gray-400 rounded px-3 py-2 text-black"
-              >
-                {field.options?.map((opt) => (
-                  <option key={opt} value={opt}>
-                    {opt}
-                  </option>
-                ))}
-              </select>
-            ) : field.isCheckbox ? (
-              <div className="flex items-center gap-2">
-                <input type="checkbox" name={field.name} />
-                <label>{field.placeholder}</label>
-              </div>
-            ) : (
-              <Form.Control asChild>
-                <CustomInput
-                  type={field.type}
-                  name={field.name}
-                  placeholder={field.placeholder}
-                  required={field.required}
-                  minLength={field.minLength}
-                  maxLength={field.maxLength}
-                />
-              </Form.Control>
-            )}
+                minLength={field.minLength}
+                maxLength={field.maxLength}
+              />
+            </Form.Control>
+          )}
 
-            {field.required && field.errorMessage && (
-              <Form.Message match="valueMissing" className="text-red-500 text-sm">
-                {field.errorMessage}
-              </Form.Message>
-            )}
-          </Form.Field>
-        ))}
+          {field.required && field.errorMessage && (
+            <Form.Message match="valueMissing" className="text-red-500 text-sm">
+              {field.errorMessage}
+            </Form.Message>
+          )}
+        </Form.Field>
+      ))}
 
-        <Form.Submit asChild>
-          <GridButton text={submitText} type="submit" />
-        </Form.Submit>
-      </Form.Root>
-    </div>
+      <Form.Submit asChild>
+        <GridButton text={submitText} type="submit" />
+      </Form.Submit>
+    </Form.Root>
   );
 };

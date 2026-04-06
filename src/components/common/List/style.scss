@@ -1,0 +1,27 @@
+// .rank-card{
+//     background: white !important;
+// }
+
+.rank-table {
+  .rank-card {
+    &:nth-child(even) {
+      background: transparent;
+    }
+  }
+  h3 {
+    width: 100%;
+    .cardText {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+.buttonContainer {
+  
+  @applye flex items-center justify-center mt-4 bg-blue;
+  .listButton {
+   
+   
+  }
+}
