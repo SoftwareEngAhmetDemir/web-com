@@ -13,7 +13,7 @@ export default function List({
   data,
   title
 }: {
-  data: { name: string; score: string }[];
+  data: { name: string; score: string; flag?: string }[];
   title: string;
 }) {
   return (
@@ -26,25 +26,35 @@ export default function List({
           <RedCard
             key={i}
             text={
-              <div className="cardText">
-                <div>
+              <div className="cardText grid grid-cols-7  items-center">
+                <div className="col-span-1">
                   {i < 3 ? (
                     <img src={MEDALS[i]} alt={`Medal ${i + 1}`} />
                   ) : (
                     i + 1
                   )}
                 </div>
-                <div>{guild.name}</div>
-                <div> {guild.score}</div>
+                <div className="col-span-4">{guild.name}</div>
+                {guild.flag && (
+                  <div className="col-span-1">
+                    <img
+                      width={"30"}
+                      height={"30"}
+                      src={guild.flag}
+                      alt={`Flag ${i + 1}`}
+                    />
+                  </div>
+                )}
+                <div className={"text-end" + (guild.flag ? " col-span-1" : " col-span-2")}> {guild.score}</div>
               </div>
             }
             classes="rank-card"
           />
         ))}
       </div>
-    <div className="buttonContainer">
-      <GridButton text="Tum Liste" className="listButton"/>
-    </div>
+      <div className="buttonContainer mt-4">
+        <GridButton text="Full List +" className="listButton px-1" />
+      </div>
     </div>
   );
 }

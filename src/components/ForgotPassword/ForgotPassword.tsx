@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { CustomForm, type FormField} from "../common/CustomForm/CustomForm";
 
 const forgetPasswordFields: FormField[] = [
@@ -46,8 +47,8 @@ export default function ForgetPasswordForm() {
         submitText="Send Reset Email"
         onSubmit={handleSubmit}
       />
-      <div>Already have an account? Nowlog in.</div>
-      <div>Don't have an account? Nowregister..</div>
+      <div>Already have an account? Now <Link to="/" className="text-blue-500 hover:underline">log in</Link>.</div>
+      <div>Don't have an account? Now <Link to="/register" className="text-blue-500 hover:underline">register</Link>.</div>
     </>
   );
 }

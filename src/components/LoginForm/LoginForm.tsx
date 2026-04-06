@@ -1,6 +1,7 @@
 import * as Form from "@radix-ui/react-form";
 import { RedCard } from "../common/RedCard/RedCard";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   // Submit handler
@@ -46,8 +47,19 @@ export default function LoginForm() {
           onSubmit={handleLogin}
         />
       </div>
-      <div>Register | Forgot Password</div>
-      <div>Pin Forgot Password</div>
+      <div className="flex mt-3 gap-3">
+         <Link  className="no-underline hover:underline"  to="/register" className="text-blue-500 hover:underline">
+        Register
+      </Link>|
+      <Link className="no-underline hover:underline" to="/forgot-password" className="text-blue-500 hover:underline">
+        Forgot Password
+      </Link>
+      </div>
+      <div className="my-3">
+      <Link className="no-underline hover:underline" to="/forgot-pin" className="text-blue-500 hover:underline">
+        Forgot Pin
+      </Link>
+      </div>
     </>
   );
 }

@@ -13,7 +13,8 @@ import ForgetPinForm from "./components/PinForgotPassword/PinForgotPassword.tsx"
 import ForgetPasswordForm from "./components/ForgotPassword/ForgotPassword.tsx";
 import TawkWidget from "./components/TawkWidget/TawkWidget.tsx";
 import { GuildList } from "./components/GuildList/GuildList.tsx";
-import { PlayerRanking } from "./components/PlayerRanking/PlayerRanking.tsx";
+import { PlayerRankingList } from "./components/PlayerRankingList/PlayerRankingList.tsx";
+import RouteView from "./routes/index.tsx";
 
 export default function App() {
   const [lang, setLang] = useState("TR");
@@ -48,16 +49,14 @@ export default function App() {
 
         {/* Center Content */}
         <main className="content">
-          {/* <RegisterForm /> */}
-          {/* <ForgetPinForm/> */}
-          <ForgetPasswordForm />
+          <RouteView/>
         </main>
 
         {/* Right Sidebar */}
         <aside className="sidebar right">
           <DownloadBanner />
           <StatsCard activePlayers={150738} />
-          <PlayerRanking />
+          <PlayerRankingList />
         </aside>
       </div>
 

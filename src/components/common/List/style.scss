@@ -11,15 +11,15 @@
   h3 {
     width: 100%;
     .cardText {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+   font-size: 1rem;
     }
   }
 }
 .buttonContainer {
   
-  @applye flex items-center justify-center mt-4 bg-blue;
+display: flex;
+justify-content: center;
+align-items: center;
   .listButton {
    
    
