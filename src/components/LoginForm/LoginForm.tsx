@@ -48,15 +48,15 @@ export default function LoginForm() {
         />
       </div>
       <div className="flex mt-3 gap-3">
-         <Link  className="no-underline hover:underline"  to="/register" className="text-blue-500 hover:underline">
+         <Link className="no-underline hover:underline text-blue-500" to="/register">
         Register
       </Link>|
-      <Link className="no-underline hover:underline" to="/forgot-password" className="text-blue-500 hover:underline">
+      <Link className="no-underline hover:underline text-blue-500" to="/forgot-password">
         Forgot Password
       </Link>
       </div>
       <div className="my-3">
-      <Link className="no-underline hover:underline" to="/forgot-pin" className="text-blue-500 hover:underline">
+      <Link className="no-underline hover:underline text-blue-500" to="/forgot-pin">
         Forgot Pin
       </Link>
       </div>

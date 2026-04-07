@@ -1,91 +1,108 @@
-import React, { useState } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "./style.scss";
+
 const NAV_LEFT = [
-  { zh: "主页", tr: "Ana Sayfa", href: "/" },
-  { zh: "新闻", tr: "Kayıt Ol", href: "/register" },
-  { zh: "媒体", tr: "Karakter S.", href: "/ranking/player" },
-  { zh: "下载", tr: "İndir", href: "/download" }
+  { zh: "主页", label: "Ana Sayfa", href: "/web" },
+  { zh: "新闻", label: "Register", href: "/register" },
+  { zh: "媒体", label: "Character S.", href: "/ranking/player" },
+  { zh: "下载", label: "Download", href: "/download" }
 ];
 
 const NAV_RIGHT = [
-  { zh: "活动", tr: "Lonca S.", href: "/ranking/guild" },
-  { zh: "支持", tr: "Destek", href: "/support" },
+  { zh: "活动", label: "GUILD S.", href: "/ranking/guild" },
+  { zh: "支持", label: "SUPPORT", href: "/support" },
   {
     zh: "脸书",
-    tr: "Facebook",
+    label: "FACEBOOK",
     href: "https://facebook.com/capo2wslik",
     external: true
   }
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState(0);
+  const renderItem = (item) => {
+    const baseClass = "navButton";
+
+    // External links (unchanged)
+    if (item.external) {
+      return (
+        <a
+          key={item.label}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={baseClass}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = "var(--border-gold)";
+            e.currentTarget.style.background = "rgba(201,168,76,0.06)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = "transparent";
+            e.currentTarget.style.background = "transparent";
+          }}
+        >
+          <div className="zh">{item.zh}</div>
+          <div className="nav-link">{item.label}</div>
+        </a>
+      );
+    }
+
+    // Internal links with NavLink
+    return (
+      <NavLink
+        key={item.label}
+        to={item.href}
+        end={item.href === "/"}
+        className={({ isActive }) =>
+          `${baseClass} ${isActive ? "active" : ""}`
+        }
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = "var(--border-gold)";
+          e.currentTarget.style.background = "rgba(201,168,76,0.06)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "transparent";
+          e.currentTarget.style.background = "transparent";
+        }}
+      >
+        <div className="zh">{item.zh}</div>
+        <div className="nav-link">{item.label}</div>
+      </NavLink>
+    );
+  };
 
   return (
     <nav
       style={{
         position: "relative",
         zIndex: 10,
-        // padding: "18px 0 10px",
         borderBottom: "1px solid var(--border-gold)",
-        height: "45vh",
+        height: "53vh",
         width: "100%",
         overflow: "hidden"
       }}
     >
-      <div
-        className="navBarContainer"
-      >
+      <div className="navBarContainer">
         {/* Left Links */}
         <div className="navBarPart">
-          {NAV_LEFT.map((item, i) => (
-            <a
-              key={item.tr}
-              href={item.href}
-              className={`navButton ${active === i ? "active" : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                setActive(i);
-              }}
-            >
-              <div className="zh">{item.zh}</div>
-              <div className="nav-link">{item.tr}</div>
-            </a>
-          ))}
+          {NAV_LEFT.map(renderItem)}
         </div>
 
         {/* Right Links */}
         <div className="navBarPart">
-          {NAV_RIGHT.map((item, i) => (
-            <a
-              key={item.tr}
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              className={`navButton ${active === i ? "active" : ""}`}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--border-gold)";
-                e.currentTarget.style.background = "rgba(201,168,76,0.06)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "transparent";
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
-              <div className="zh">{item.zh}</div>
-              <div className="nav-link">{item.tr}</div>
-            </a>
-          ))}
+          {NAV_RIGHT.map(renderItem)}
         </div>
       </div>
 
+      {/* Logo */}
       <div>
         <div
           style={{
             position: "absolute",
             width: "400px",
-            bottom: "0px",
-            transform: "translateY(20px)"
+            bottom: "12vh",
+            transform: "translate(20%,20px)"
           }}
         >
           <a href="https://capomt2.com/web/">

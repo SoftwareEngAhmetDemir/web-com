@@ -8,10 +8,10 @@ export default function StatsCard({ activePlayers }: { activePlayers: number }) 
       <div className="card-header">
        <RedCard text="Statistics" />
       </div>
-      <div className="stat-item">
+      <div className="flex justify-between items-center  p-3">
 
-        <span className="stat-label">Active Player</span>
-        <span className="stat-value">{activePlayers.toLocaleString()}</span>
+        <span className="text-[#ffedc6]!">Active Player</span>
+        <span className="text-[#e8cc7a]!">{activePlayers.toLocaleString()}</span>
       </div>
     </div>
   );

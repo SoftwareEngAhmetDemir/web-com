@@ -108,26 +108,38 @@ export default function RegisterForm() {
   };
 
   return (
-    <>
-      <h1>Register</h1>
-      <CustomForm
-        fields={registerFields}
-        submitText="Register"
-        onSubmit={handleRegister}
-      />
-      Already have an account? Now{" "}
-      <Link to="/" className="text-blue-500 hover:underline">
-        log in
-      </Link>
-      . Forgot your password?{" "}
-      <Link to="/forgot-password" className="text-blue-500 hover:underline">
-        Reset your password
-      </Link>
-      . Forgot your pin?{" "}
-      <Link to="/forgot-pin" className="text-blue-500 hover:underline">
-        Reset your pin password
-      </Link>
-      .
-    </>
+    <div>
+      <div className="text-center">
+        <h1 className="text-[2rem] font-medium text-center">Register</h1>
+        <hr className="my-[20px]" />
+        <CustomForm
+          fields={registerFields}
+          submitText="Register"
+          onSubmit={handleRegister}
+         
+        />
+      </div>
+      <div className="flex my-5">
+        Already have an account? Now
+        <Link to="/" className="ml-1 text-blue-500 hover:underline">
+          log in
+        </Link>
+      </div>
+      <div className="flex my-3">
+        Forgot your password?
+        <Link
+          to="/forgot-password"
+          className="ml-1text-blue-500 hover:underline"
+        >
+          Reset your password
+        </Link>
+      </div>
+      <div className="flex my-3">
+        Forgot your PIN?
+        <Link to="/forgot-pin" className="ml-1 text-blue-500 hover:underline">
+          Reset your PIN
+        </Link>
+      </div>
+    </div>
   );
 }

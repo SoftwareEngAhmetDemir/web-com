@@ -14,11 +14,12 @@ const PLAYERS = [
   { name: "Lux", flag: 'https://capomt2.com/web/assets/images/empire/3.jpg', score: "99" },
 ];
 
+const symbol = 'LV';
 
 export const PlayerRankingList: React.FC = () => {
     return (
         <div >
-          <List data={PLAYERS}  title='Player Ranking'/>   
+          <List data={PLAYERS} symbole={symbol} title='Player Ranking'/>   
         </div>
     )
 }

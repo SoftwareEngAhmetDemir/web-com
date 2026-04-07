@@ -11,10 +11,12 @@ const MEDALS = [
 
 export default function List({
   data,
-  title
+  title,
+  symbole
 }: {
   data: { name: string; score: string; flag?: string }[];
   title: string;
+  symbole?: string;
 }) {
   return (
     <div className="card">
@@ -45,7 +47,8 @@ export default function List({
                     />
                   </div>
                 )}
-                <div className={"text-end" + (guild.flag ? " col-span-1" : " col-span-2")}> {guild.score}</div>
+                <div className={"flex justify-end" + (guild.flag ? " col-span-1" : " col-span-2")}> 
+                  {guild.score} <div className="text-xs">{symbole??null}</div></div>
               </div>
             }
             classes="rank-card"

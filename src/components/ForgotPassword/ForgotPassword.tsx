@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CustomForm, type FormField} from "../common/CustomForm/CustomForm";
+import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 
 const forgetPasswordFields: FormField[] = [
   {
@@ -41,14 +41,26 @@ export default function ForgetPasswordForm() {
 
   return (
     <>
-      <h1>Forgot Password</h1>
+      <h1 className="text-[2rem] font-medium text-center">Forgot Password</h1>
+      <hr className="my-[20px]" />
       <CustomForm
         fields={forgetPasswordFields}
         submitText="Send Reset Email"
         onSubmit={handleSubmit}
+         submitButtonClassName="w-full"
       />
-      <div>Already have an account? Now <Link to="/" className="text-blue-500 hover:underline">log in</Link>.</div>
-      <div>Don't have an account? Now <Link to="/register" className="text-blue-500 hover:underline">register</Link>.</div>
+      <div className="flex my-5">
+        Already have an account? Now
+        <Link to="/" className="ml-1 text-blue-500 hover:underline">
+          log in
+        </Link>
+      </div>
+      <div className="flex my-3">
+        Don't have an account? Now
+        <Link to="/register" className="ml-1 text-blue-500 hover:underline">
+          register
+        </Link>
+      </div>
     </>
   );
 }

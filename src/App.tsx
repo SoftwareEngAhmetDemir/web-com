@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
-import List from "./components/common/List/List.tsx";
 import StatsCard from "./components/StatsCard.tsx";
-import Announcements from "./components/Announcements.tsx";
-import FacebookWidget from "./components/FacebookWidget.tsx";
 import DownloadBanner from "./components/DownloadBanner.tsx";
 import Footer from "./components/Footer.tsx";
-import RouteComp from "./routes/index.tsx";
-import RegisterForm from "./components/RegisterForm/RegisterForm.tsx";
-import ForgetPinForm from "./components/PinForgotPassword/PinForgotPassword.tsx";
-import ForgetPasswordForm from "./components/ForgotPassword/ForgotPassword.tsx";
 import TawkWidget from "./components/TawkWidget/TawkWidget.tsx";
 import { GuildList } from "./components/GuildList/GuildList.tsx";
 import { PlayerRankingList } from "./components/PlayerRankingList/PlayerRankingList.tsx";
@@ -21,7 +14,6 @@ export default function App() {
 
   return (
     <div className="site-wrap">
-      <RouteComp />
       {/* Language Picker */}
       {/* <div className="lang-bar">
         {["TR", "EN"].map((l) => (

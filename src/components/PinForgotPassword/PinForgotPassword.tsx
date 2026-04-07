@@ -43,14 +43,27 @@ export default function ForgetPinForm() {
 
   return (
     <>
-      <h1>Forgot PIN</h1>
+      <h1 className="text-[2rem] font-medium text-center">Forgot PIN</h1>
+      <hr className="my-[20px]" />
       <CustomForm
         fields={forgetPinFields}
         submitText="Send Reset Email"
         onSubmit={handleSubmit}
+        submitButtonClassName="w-full"
       />
-        <div>Already have an account? Now <Link to="/" className="text-blue-500 hover:underline">log in</Link>.</div>
-            <div>Don't have an account? Now <Link to="/register" className="text-blue-500 hover:underline">register</Link>.</div>
+      <div className="flex my-5">
+        Already have an account? Now{" "}
+        <Link to="/" className="text-blue-500 hover:underline">
+          log in
+        </Link>
+        .
+      </div>
+      <div className="flex my-3">
+        Don't have an account? Now{" "}
+        <Link to="/register" className="text-blue-500 hover:underline">
+          register
+        </Link>
+      </div>
     </>
   );
 }

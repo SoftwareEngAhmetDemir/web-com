@@ -19,11 +19,13 @@ interface CustomFormProps {
   fields: FormField[];
   onSubmit: (data: Record<string, string | boolean>) => void;
   submitText?: string;
+  submitButtonClassName?: string;
 }
 
 export const CustomForm: React.FC<CustomFormProps> = ({
   fields,
   onSubmit,
+  submitButtonClassName,
   submitText = "Submit"
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -89,7 +91,11 @@ export const CustomForm: React.FC<CustomFormProps> = ({
       ))}
 
       <Form.Submit asChild>
-        <GridButton text={submitText} type="submit" />
+        <GridButton
+          text={submitText}
+          type="submit"
+          className={submitButtonClassName || ""}
+        />
       </Form.Submit>
     </Form.Root>
   );
