@@ -1,3 +1,110 @@
 {
-    
+  "nav": {
+    "home": "Ana Sayfa",
+    "register": "Register",
+    "characterRanking": "Character S.",
+    "download": "Download",
+    "guildRanking": "GUILD S.",
+    "support": "SUPPORT",
+    "facebook": "FACEBOOK"
+  },
+  "footer": {
+    "home": "Home",
+    "register": "Register",
+    "characterRanking": "Character Ranking",
+    "guildRanking": "Guild Ranking",
+    "download": "Download",
+    "copyright": "© 2026 All Rights Reserved | Capo2"
+  },
+  "login": {
+    "title": "LOG IN",
+    "accountName": "Account Name",
+    "password": "Your password",
+    "pinCode": "Pin Code",
+    "loginButton": "LOG IN",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "forgotPin": "Forgot Pin",
+    "fillAllFields": "Please fill in all fields!"
+  },
+  "register": {
+    "title": "Register",
+    "realName": "Your name (between 5 and 20 characters)",
+    "accountName": "Account Name (Between 5-15 Characters)",
+    "email": "Email Address",
+    "password": "Password (Between 8-15 Characters)",
+    "repeatPassword": "Repeat Password (Between 8-15 Characters)",
+    "pinCode": "Pin Code (4 Digits)",
+    "phone": "Your Phone Number",
+    "deleteCode": "Character Delete Code (7 Digits)",
+    "whereDidYouFindUs": "Where Did You Find Us?",
+    "membershipAgreement": "Membership Agreement I have read and accept",
+    "registerButton": "Register",
+    "alreadyHaveAccount": "Already have an account? Now",
+    "logIn": "log in",
+    "forgotPasswordText": "Forgot your password?",
+    "resetPassword": "Reset your password",
+    "forgotPinText": "Forgot your PIN?",
+    "resetPin": "Reset your PIN"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "accountName": "Account Name (Between 5-15 Characters)",
+    "email": "Email Address",
+    "sendResetEmail": "Send Reset Email",
+    "alreadyHaveAccount": "Already have an account? Now",
+    "logIn": "log in",
+    "noAccount": "Don't have an account? Now",
+    "register": "register"
+  },
+  "forgotPin": {
+    "title": "Forgot PIN",
+    "accountName": "Account Name (Between 5-15 Characters)",
+    "email": "Email Address",
+    "sendResetEmail": "Send Reset Email",
+    "alreadyHaveAccount": "Already have an account? Now",
+    "logIn": "log in",
+    "noAccount": "Don't have an account? Now",
+    "register": "register"
+  },
+  "stats": {
+    "title": "Statistics",
+    "activePlayer": "Active Player"
+  },
+  "announcements": {
+    "title": "Announcements",
+    "noAnnouncements": "No Announcements Added!"
+  },
+  "guildList": {
+    "title": "Guild Ranking"
+  },
+  "playerList": {
+    "title": "Player Ranking"
+  },
+  "guildTable": {
+    "title": "Guild Ranking",
+    "guildName": "Guild Name",
+    "level": "Level",
+    "points": "Points",
+    "kingdom": "Kingdom",
+    "win": "Win",
+    "draw": "Draw",
+    "lose": "Lose"
+  },
+  "characterTable": {
+    "title": "Character Order",
+    "characterName": "Character Name",
+    "level": "Level",
+    "guild": "Guild",
+    "playTime": "Play Time",
+    "kingdom": "Kingdom"
+  },
+  "support": {
+    "title": "Support",
+    "oops": "Oops!",
+    "loginRequired": "You must be logged in to use the support system."
+  },
+  "list": {
+    "fullList": "Full List +"
+  }
 }

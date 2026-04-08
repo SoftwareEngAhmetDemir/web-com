@@ -1,14 +1,5 @@
 import { CustomTable } from "../common/CustomTable/CustomTable";
-
-const columns = [
-  "Guild Name",
-  "Level",
-  "Points",
-  "Kingdom",
-  "Win",
-  "Draw",
-  "Lose"
-];
+import { useTranslation } from "react-i18next";
 
 const data = [
   ["AKASYADURAGI", "20", "23602", "-", "5", "0", "0"],
@@ -30,9 +21,21 @@ const data = [
 ];
 
 export const GuildTable = () => {
+  const { t } = useTranslation();
+
+  const columns = [
+    t("guildTable.guildName"),
+    t("guildTable.level"),
+    t("guildTable.points"),
+    t("guildTable.kingdom"),
+    t("guildTable.win"),
+    t("guildTable.draw"),
+    t("guildTable.lose")
+  ];
+
   return (
     <>
-      <h1 className="text-[2rem] font-medium text-center">Guild Ranking</h1>
+      <h1 className="text-[2rem] font-medium text-center">{t("guildTable.title")}</h1>
       <hr className="my-[20px]" />
       <CustomTable columns={columns} data={data} />
     </>

@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 export default function Announcements() {
+  const { t } = useTranslation();
+
   return (
     <div className="announcements text-center">
       <div className="flex justify-center items-center w-full">
@@ -20,10 +24,9 @@ export default function Announcements() {
           }}
         ></iframe>
       </div>
-      <h1 className="text-[2rem] font-medium my-5">Announcements</h1>
+      <h1 className="text-[2rem] font-medium my-5">{t("announcements.title")}</h1>
       <hr className="my-[20px]" />
-
-      <h3>No Announcements Added!</h3>
+      <h3>{t("announcements.noAnnouncements")}</h3>
     </div>
   );
 }

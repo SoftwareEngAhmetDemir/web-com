@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
 import StatsCard from "./components/StatsCard.tsx";
@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 export default function App() {
   const [lang, setLang] = useState("TR");
   const { t, i18n } = useTranslation();
+
   return (
     <div className="site-wrap">
       {/* Language Picker */}

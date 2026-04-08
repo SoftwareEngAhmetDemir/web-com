@@ -1,34 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./style.scss";
 
-const NAV_LEFT = [
-  { zh: "主页", label: "Ana Sayfa", href: "/web" },
-  { zh: "新闻", label: "Register", href: "/register" },
-  { zh: "媒体", label: "Character S.", href: "/ranking/player" },
-  { zh: "下载", label: "Download", href: "/download" }
-];
-
-const NAV_RIGHT = [
-  { zh: "活动", label: "GUILD S.", href: "/ranking/guild" },
-  { zh: "支持", label: "SUPPORT", href: "/support" },
-  {
-    zh: "脸书",
-    label: "FACEBOOK",
-    href: "https://facebook.com/capo2wslik",
-    external: true
-  }
-];
-
 export default function Navbar() {
-  const renderItem = (item) => {
+  const { t } = useTranslation();
+
+  const NAV_LEFT = [
+    { zh: "主页", labelKey: "nav.home", href: "/web" },
+    { zh: "新闻", labelKey: "nav.register", href: "/register" },
+    { zh: "媒体", labelKey: "nav.characterRanking", href: "/ranking/player" },
+    { zh: "下载", labelKey: "nav.download", href: "/download" }
+  ];
+
+  const NAV_RIGHT = [
+    { zh: "活动", labelKey: "nav.guildRanking", href: "/ranking/guild" },
+    { zh: "支持", labelKey: "nav.support", href: "/support" },
+    {
+      zh: "脸书",
+      labelKey: "nav.facebook",
+      href: "https://facebook.com/capo2wslik",
+      external: true
+    }
+  ];
+
+  const renderItem = (item: { zh: string; labelKey: string; href: string; external?: boolean }) => {
     const baseClass = "navButton";
 
-    // External links (unchanged)
     if (item.external) {
       return (
         <a
-          key={item.label}
+          key={item.labelKey}
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
@@ -43,15 +45,14 @@ export default function Navbar() {
           }}
         >
           <div className="zh">{item.zh}</div>
-          <div className="nav-link">{item.label}</div>
+          <div className="nav-link">{t(item.labelKey)}</div>
         </a>
       );
     }
 
-    // Internal links with NavLink
     return (
       <NavLink
-        key={item.label}
+        key={item.labelKey}
         to={item.href}
         end={item.href === "/"}
         className={({ isActive }) =>
@@ -67,7 +68,7 @@ export default function Navbar() {
         }}
       >
         <div className="zh">{item.zh}</div>
-        <div className="nav-link">{item.label}</div>
+        <div className="nav-link">{t(item.labelKey)}</div>
       </NavLink>
     );
   };
@@ -84,18 +85,14 @@ export default function Navbar() {
       }}
     >
       <div className="navBarContainer">
-        {/* Left Links */}
         <div className="navBarPart">
           {NAV_LEFT.map(renderItem)}
         </div>
-
-        {/* Right Links */}
         <div className="navBarPart">
           {NAV_RIGHT.map(renderItem)}
         </div>
       </div>
 
-      {/* Logo */}
       <div>
         <div
           style={{

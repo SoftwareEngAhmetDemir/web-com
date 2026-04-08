@@ -1,64 +1,54 @@
 import { Link } from "react-router-dom";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
-
-const forgetPasswordFields: FormField[] = [
-  {
-    name: "account_name",
-    type: "text",
-    placeholder: "Account Name (Between 5-15 Characters)",
-    required: true,
-    minLength: 5,
-    maxLength: 12,
-    errorMessage: "Account Name is required"
-  },
-  {
-    name: "e-mail",
-    type: "email",
-    placeholder: "Email Address",
-    required: true,
-    maxLength: 100,
-    errorMessage: "Email is required"
-  }
-  // You can handle recaptcha separately if needed
-];
+import { useTranslation } from "react-i18next";
 
 export default function ForgetPasswordForm() {
+  const { t } = useTranslation();
+
+  const forgetPasswordFields: FormField[] = [
+    {
+      name: "account_name",
+      type: "text",
+      placeholder: t("forgotPassword.accountName"),
+      required: true,
+      minLength: 5,
+      maxLength: 12,
+      errorMessage: "Account Name is required"
+    },
+    {
+      name: "e-mail",
+      type: "email",
+      placeholder: t("forgotPassword.email"),
+      required: true,
+      maxLength: 100,
+      errorMessage: "Email is required"
+    }
+  ];
+
   const handleSubmit = (data: Record<string, string | boolean>) => {
     console.log("Forget Password Form Submitted:", data);
-
-    // Example: send to API
-    /*
-    fetch("/api/forget-password", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .then(data => console.log("Success:", data))
-      .catch(err => console.error("Failed:", err));
-    */
   };
 
   return (
     <>
-      <h1 className="text-[2rem] font-medium text-center">Forgot Password</h1>
+      <h1 className="text-[2rem] font-medium text-center">{t("forgotPassword.title")}</h1>
       <hr className="my-[20px]" />
       <CustomForm
         fields={forgetPasswordFields}
-        submitText="Send Reset Email"
+        submitText={t("forgotPassword.sendResetEmail")}
         onSubmit={handleSubmit}
-         submitButtonClassName="w-full"
+        submitButtonClassName="w-full"
       />
       <div className="flex my-5">
-        Already have an account? Now
+        {t("forgotPassword.alreadyHaveAccount")}
         <Link to="/" className="ml-1 text-blue-500 hover:underline">
-          log in
+          {t("forgotPassword.logIn")}
         </Link>
       </div>
       <div className="flex my-3">
-        Don't have an account? Now
+        {t("forgotPassword.noAccount")}
         <Link to="/register" className="ml-1 text-blue-500 hover:underline">
-          register
+          {t("forgotPassword.register")}
         </Link>
       </div>
     </>

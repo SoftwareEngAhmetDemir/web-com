@@ -1,7 +1,7 @@
-import React from "react";
 import { RedCard } from "../RedCard/RedCard";
 import "./style.scss";
 import { GridButton } from "../GridButton/GridButton";
+import { useTranslation } from "react-i18next";
 
 const MEDALS = [
   "https://capomt2.com/web/assets/ThemeFifteen/images/1.png",
@@ -18,6 +18,8 @@ export default function List({
   title: string;
   symbole?: string;
 }) {
+  const { t } = useTranslation();
+
   return (
     <div className="card">
       <div className="card-header mb-2">
@@ -28,7 +30,7 @@ export default function List({
           <RedCard
             key={i}
             text={
-              <div className="cardText grid grid-cols-7  items-center">
+              <div className="cardText grid grid-cols-7 items-center">
                 <div className="col-span-1">
                   {i < 3 ? (
                     <img src={MEDALS[i]} alt={`Medal ${i + 1}`} />
@@ -47,8 +49,9 @@ export default function List({
                     />
                   </div>
                 )}
-                <div className={"flex justify-end" + (guild.flag ? " col-span-1" : " col-span-2")}> 
-                  {guild.score} <div className="text-xs">{symbole??null}</div></div>
+                <div className={"flex justify-end" + (guild.flag ? " col-span-1" : " col-span-2")}>
+                  {guild.score} <div className="text-xs">{symbole ?? null}</div>
+                </div>
               </div>
             }
             classes="rank-card"
@@ -56,7 +59,7 @@ export default function List({
         ))}
       </div>
       <div className="buttonContainer mt-4">
-        <GridButton text="Full List +" className="listButton px-1" />
+        <GridButton text={t("list.fullList")} className="listButton px-1" />
       </div>
     </div>
   );

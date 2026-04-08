@@ -1,3 +1,110 @@
 {
-    
+  "nav": {
+    "home": "Ana Sayfa",
+    "register": "Kayıt Ol",
+    "characterRanking": "Karakter S.",
+    "download": "İndir",
+    "guildRanking": "LONCA S.",
+    "support": "DESTEK",
+    "facebook": "FACEBOOK"
+  },
+  "footer": {
+    "home": "Ana Sayfa",
+    "register": "Kayıt Ol",
+    "characterRanking": "Karakter Sıralaması",
+    "guildRanking": "Lonca Sıralaması",
+    "download": "İndir",
+    "copyright": "© 2026 Tüm Hakları Saklıdır | Capo2"
+  },
+  "login": {
+    "title": "GİRİŞ YAP",
+    "accountName": "Hesap Adı",
+    "password": "Şifreniz",
+    "pinCode": "Pin Kodu",
+    "loginButton": "GİRİŞ YAP",
+    "register": "Kayıt Ol",
+    "forgotPassword": "Şifremi Unuttum",
+    "forgotPin": "Pin'imi Unuttum",
+    "fillAllFields": "Lütfen tüm alanları doldurun!"
+  },
+  "register": {
+    "title": "Kayıt Ol",
+    "realName": "Adınız (5 ile 20 karakter arası)",
+    "accountName": "Hesap Adı (5-15 Karakter Arası)",
+    "email": "E-posta Adresi",
+    "password": "Şifre (8-15 Karakter Arası)",
+    "repeatPassword": "Şifre Tekrar (8-15 Karakter Arası)",
+    "pinCode": "Pin Kodu (4 Basamak)",
+    "phone": "Telefon Numaranız",
+    "deleteCode": "Karakter Silme Kodu (7 Basamak)",
+    "whereDidYouFindUs": "Bizi Nereden Buldunuz?",
+    "membershipAgreement": "Üyelik Sözleşmesini okudum ve kabul ediyorum",
+    "registerButton": "Kayıt Ol",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "logIn": "Giriş yapın",
+    "forgotPasswordText": "Şifrenizi mi unuttunuz?",
+    "resetPassword": "Şifrenizi sıfırlayın",
+    "forgotPinText": "PIN'inizi mi unuttunuz?",
+    "resetPin": "PIN'inizi sıfırlayın"
+  },
+  "forgotPassword": {
+    "title": "Şifremi Unuttum",
+    "accountName": "Hesap Adı (5-15 Karakter Arası)",
+    "email": "E-posta Adresi",
+    "sendResetEmail": "Sıfırlama E-postası Gönder",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "logIn": "Giriş yapın",
+    "noAccount": "Hesabınız yok mu?",
+    "register": "kayıt olun"
+  },
+  "forgotPin": {
+    "title": "PIN'imi Unuttum",
+    "accountName": "Hesap Adı (5-15 Karakter Arası)",
+    "email": "E-posta Adresi",
+    "sendResetEmail": "Sıfırlama E-postası Gönder",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?",
+    "logIn": "Giriş yapın",
+    "noAccount": "Hesabınız yok mu?",
+    "register": "kayıt olun"
+  },
+  "stats": {
+    "title": "İstatistikler",
+    "activePlayer": "Aktif Oyuncu"
+  },
+  "announcements": {
+    "title": "Duyurular",
+    "noAnnouncements": "Duyuru Eklenmedi!"
+  },
+  "guildList": {
+    "title": "Lonca Sıralaması"
+  },
+  "playerList": {
+    "title": "Oyuncu Sıralaması"
+  },
+  "guildTable": {
+    "title": "Lonca Sıralaması",
+    "guildName": "Lonca Adı",
+    "level": "Seviye",
+    "points": "Puan",
+    "kingdom": "Krallık",
+    "win": "Galibiyet",
+    "draw": "Beraberlik",
+    "lose": "Mağlubiyet"
+  },
+  "characterTable": {
+    "title": "Karakter Sıralaması",
+    "characterName": "Karakter Adı",
+    "level": "Seviye",
+    "guild": "Lonca",
+    "playTime": "Oyun Süresi",
+    "kingdom": "Krallık"
+  },
+  "support": {
+    "title": "Destek",
+    "oops": "Hata!",
+    "loginRequired": "Destek sistemini kullanmak için giriş yapmalısınız."
+  },
+  "list": {
+    "fullList": "Tam Liste +"
+  }
 }

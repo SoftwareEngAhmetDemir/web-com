@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import List from '../common/List/List';
+import { useTranslation } from 'react-i18next';
 
 const GUILDS = [
   { name: "AKASYADURAGI", score: "24" },
@@ -13,11 +14,14 @@ const GUILDS = [
   { name: "FAVELA", score: "21" },
   { name: "SOLDELACRIME", score: "21" }
 ];
+
 const symbol = 'K';
+
 export const GuildList: React.FC = () => {
-    return (
-        <div >
-          <List data={GUILDS} symbole={symbol} title='Guild Ranking'/>   
-        </div>
-    )
-}
+  const { t } = useTranslation();
+  return (
+    <div>
+      <List data={GUILDS} symbole={symbol} title={t('guildList.title')} />
+    </div>
+  );
+};
