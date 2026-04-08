@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 
 const LANGS = [
   { code: "en", img: "https://capomt2.com/web/assets/images/en.png" },
-  { code: "tr", img: "https://capomt2.com/web/assets/images/tr.png" },
+  { code: "tr", img: "https://capomt2.com/web/assets/images/tr.png" }
 ];
 
 export default function App() {
@@ -35,12 +35,11 @@ export default function App() {
   // Selected language first, the other second
   const ordered = [
     LANGS.find((l) => l.code === lang)!,
-    ...LANGS.filter((l) => l.code !== lang),
+    ...LANGS.filter((l) => l.code !== lang)
   ];
 
   return (
     <div className="site-wrap">
-
       <ul className="languagepicker">
         {ordered.map((l, i) => (
           <li
@@ -49,7 +48,11 @@ export default function App() {
             className={i === 1 ? "second-wrapper" : ""}
             onClick={() => changeLang(l.code)}
           >
-            {i === 1 && <div className="sepatator"><hr /></div>}
+            {i === 1 && (
+              <div className="sepatator">
+                <hr />
+              </div>
+            )}
             <img src={l.img} />
           </li>
         ))}
