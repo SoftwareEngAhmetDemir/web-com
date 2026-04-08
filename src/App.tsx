@@ -8,24 +8,29 @@ import TawkWidget from "./components/TawkWidget/TawkWidget.tsx";
 import { GuildList } from "./components/GuildList/GuildList.tsx";
 import { PlayerRankingList } from "./components/PlayerRankingList/PlayerRankingList.tsx";
 import RouteView from "./routes/index.tsx";
+import { useTranslation } from "react-i18next";
 
 export default function App() {
   const [lang, setLang] = useState("TR");
-
+  const { t, i18n } = useTranslation();
   return (
     <div className="site-wrap">
       {/* Language Picker */}
-      {/* <div className="lang-bar">
+      <div className="lang-bar">
         {["TR", "EN"].map((l) => (
           <button
             key={l}
             className={`lang-btn ${lang === l ? "active" : ""}`}
-            onClick={() => setLang(l)}
+            onClick={() => {
+              setLang(l);
+
+              i18n.changeLanguage(l.toLowerCase());
+            }}
           >
             {l}
           </button>
         ))}
-      </div> */}
+      </div>
 
       <div className="hero-line" />
       <div className="hero-line2" />
@@ -36,12 +41,12 @@ export default function App() {
         {/* Left Sidebar */}
         <aside className="sidebar">
           <LoginForm />
-         <GuildList/>
+          <GuildList />
         </aside>
 
         {/* Center Content */}
         <main className="content">
-          <RouteView/>
+          <RouteView />
         </main>
 
         {/* Right Sidebar */}
