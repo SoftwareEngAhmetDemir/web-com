@@ -5,6 +5,8 @@ import ForgetPasswordForm from "../components/ForgotPassword/ForgotPassword";
 import LoginForm from "../components/LoginForm/LoginForm";
 import Announcements from "../components/Announcements";
 import { CharacterOrderTable } from "../components/CharacterOrderTable/CharacterOrderTable";
+import { GuildTable } from "../components/GuildTable/GuildTable";
+import { Support } from "../components/Support/Support";
 
 
 
@@ -17,6 +19,8 @@ export default function RouteView() {
        <Route path="/forgot-password" element={<ForgetPasswordForm />} />
         <Route path="/web" element={<Announcements/>} />
         <Route path="/ranking/player" element={<CharacterOrderTable/>} />
+        <Route path="/ranking/guild" element={<GuildTable/>} />
+        <Route path="/support" element={<Support />} />
       {/* <Route path="/" element={<Home />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="*" element={<NotFound />} /> */}

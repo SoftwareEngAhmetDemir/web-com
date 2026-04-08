@@ -1,4 +1,3 @@
-import React from "react";
 import { CustomTable } from "../common/CustomTable/CustomTable";
 
 const columns = ["Character Name", "Level", "Guild", "Play Time", "Kingdom"];
