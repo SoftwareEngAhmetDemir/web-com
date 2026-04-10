@@ -13,7 +13,6 @@ export default function Footer() {
 
   return (
     <footer>
-      <div className="hero-line" />
       <nav className="footer-links">
         {LINKS.map((link) => (
           <a key={link.labelKey} href={link.href} className="footer-link">
@@ -21,8 +20,10 @@ export default function Footer() {
           </a>
         ))}
       </nav>
-      <div className="footer-logo">CAPO2</div>
       <div className="footer-copy">{t("footer.copyright")}</div>
+      <div className="footer-logo">
+        <img src="https://capomt2.com/web/assets/images/logo.png" alt="Capo2" />
+      </div>
     </footer>
   );
 }

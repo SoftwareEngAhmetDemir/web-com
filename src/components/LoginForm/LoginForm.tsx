@@ -1,17 +1,35 @@
 import { RedCard } from "../common/RedCard/RedCard";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../../context/AuthContext";
 
 export default function LoginForm() {
   const { t } = useTranslation();
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = (data: Record<string, string | boolean>) => {
-    console.log("Form data:", data);
     if (!data["name"] || !data["password"] || !data["pin"]) {
       alert(t("login.fillAllFields"));
       return;
     }
+
+    // Simulate a successful login with mock user data
+    login({
+      accountName: data["name"] as string,
+      email: "saf*******@outlook.com",
+      dragonCoins: 0,
+      lastLogin: new Date().toLocaleString("en-GB", {
+        day: "2-digit", month: "long", year: "numeric",
+        hour: "2-digit", minute: "2-digit", second: "2-digit",
+      }),
+      registerDate: "20 February 2026 18:30:24",
+      accountOwner: (data["name"] as string).toUpperCase(),
+      accountStatus: t("panel.active"),
+    });
+
+    navigate("/dashboard");
   };
 
   const fields: FormField[] = [

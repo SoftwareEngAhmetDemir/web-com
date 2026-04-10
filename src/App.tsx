@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
+import UserPanel from "./components/UserPanel/UserPanel.tsx";
 import StatsCard from "./components/StatsCard.tsx";
 import DownloadBanner from "./components/DownloadBanner.tsx";
 import Footer from "./components/Footer.tsx";
@@ -9,14 +10,16 @@ import { GuildList } from "./components/GuildList/GuildList.tsx";
 import { PlayerRankingList } from "./components/PlayerRankingList/PlayerRankingList.tsx";
 import RouteView from "./routes/index.tsx";
 import { useTranslation } from "react-i18next";
+import { AuthProvider, useAuth } from "./context/AuthContext.tsx";
 
 const LANGS = [
   { code: "en", img: "https://capomt2.com/web/assets/images/en.png" },
-  { code: "tr", img: "https://capomt2.com/web/assets/images/tr.png" }
+  { code: "tr", img: "https://capomt2.com/web/assets/images/tr.png" },
 ];
 
-export default function App() {
+function AppInner() {
   const { i18n } = useTranslation();
+  const { user } = useAuth();
 
   const savedLang = localStorage.getItem("lang") ?? "tr";
   const [lang, setLang] = useState(savedLang);
@@ -32,10 +35,9 @@ export default function App() {
     i18n.changeLanguage(code);
   };
 
-  // Selected language first, the other second
   const ordered = [
     LANGS.find((l) => l.code === lang)!,
-    ...LANGS.filter((l) => l.code !== lang)
+    ...LANGS.filter((l) => l.code !== lang),
   ];
 
   return (
@@ -48,11 +50,7 @@ export default function App() {
             className={i === 1 ? "second-wrapper" : ""}
             onClick={() => changeLang(l.code)}
           >
-            {i === 1 && (
-              <div className="sepatator">
-                <hr />
-              </div>
-            )}
+            {i === 1 && <div className="sepatator"><hr /></div>}
             <img src={l.img} />
           </li>
         ))}
@@ -66,7 +64,7 @@ export default function App() {
       <div className="main-layout">
         {/* Left Sidebar */}
         <aside className="sidebar">
-          <LoginForm />
+          {user ? <UserPanel /> : <LoginForm />}
           <GuildList />
         </aside>
 
@@ -86,5 +84,13 @@ export default function App() {
       <Footer />
       <TawkWidget />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <AppInner />
+    </AuthProvider>
   );
 }

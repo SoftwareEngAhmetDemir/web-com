@@ -7,6 +7,7 @@ export type FormField = {
   name: string;
   type: string;
   placeholder?: string;
+  defaultValue?: string;
   required?: boolean;
   minLength?: number;
   maxLength?: number;
@@ -75,6 +76,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
                 type={field.type}
                 name={field.name}
                 placeholder={field.placeholder}
+                defaultValue={field.defaultValue}
                 required={field.required}
                 minLength={field.minLength}
                 maxLength={field.maxLength}

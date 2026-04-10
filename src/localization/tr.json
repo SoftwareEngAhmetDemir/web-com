@@ -106,5 +106,29 @@
   },
   "list": {
     "fullList": "Tam Liste +"
+  },
+  "panel": {
+    "title": "Kontrol Paneli",
+    "controlPanel": "KONTROL PANELİ",
+    "accountName": "Hesap Adı",
+    "email": "E-Posta Adresi",
+    "dragonCoins": "Ejderha Parası",
+    "lastLogin": "Son Giriş Tarihi",
+    "registerDate": "Kayıt Tarihi",
+    "accountOwner": "Hesap Sahibi",
+    "accountStatus": "Hesap Durumu",
+    "active": "Aktif",
+    "loadEP": "EP YÜKLE",
+    "useEPCoupon": "EP KUPONU KULLAN",
+    "myEPCoupons": "KULLANDIĞIM EP KUPONLARIM",
+    "supportSystem": "DESTEK SİSTEMİ",
+    "changeEmail": "E-POSTA DEĞİŞTİR",
+    "changePassword": "ŞİFRE DEĞİŞTİR",
+    "changePinPassword": "PIN ŞİFRE DEĞİŞTİR",
+    "changeDeleteCode": "KARAKTER SİLME ŞİFRESİ DEĞİŞTİR",
+    "requestVaultPassword": "DEPO ŞİFRE İSTE",
+    "saveFromToday": "BUGDAN KURTAR",
+    "panelLogs": "PANEL İŞLEM LOGLARI",
+    "logout": "ÇIKIŞ YAP"
   }
 }

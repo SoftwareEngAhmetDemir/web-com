@@ -106,5 +106,29 @@
   },
   "list": {
     "fullList": "Full List +"
+  },
+  "panel": {
+    "title": "Control Panel",
+    "controlPanel": "CONTROL PANEL",
+    "accountName": "Account Name",
+    "email": "Email Address",
+    "dragonCoins": "Dragon Coins",
+    "lastLogin": "Last Login Date",
+    "registerDate": "Register Date",
+    "accountOwner": "Account Owner",
+    "accountStatus": "Account Status",
+    "active": "Active",
+    "loadEP": "LOAD EP",
+    "useEPCoupon": "USE EP COUPON",
+    "myEPCoupons": "MY USED EP COUPONS",
+    "supportSystem": "SUPPORT SYSTEM",
+    "changeEmail": "CHANGE E-MAIL",
+    "changePassword": "CHANGE PASSWORD",
+    "changePinPassword": "CHANGE PIN PASSWORD",
+    "changeDeleteCode": "CHANGE CHARACTER DELETE CODE",
+    "requestVaultPassword": "REQUEST VAULT PASSWORD",
+    "saveFromToday": "SAVE FROM TODAY",
+    "panelLogs": "PANEL TRANSACTION LOGS",
+    "logout": "LOG OUT"
   }
 }

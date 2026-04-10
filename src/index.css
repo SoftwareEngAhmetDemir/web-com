@@ -222,52 +222,44 @@ body {
 footer {
   position: relative;
   z-index: 1;
-  border-top: 1px solid var(--border-gold);
   padding: 30px 0 20px;
-  background: var(--bg-deep);
+  background: #0a0000;
+  text-align: center;
 }
 .footer-links {
   display: flex;
-  gap: 0;
+  gap: 48px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin-bottom: 16px;
 }
 .footer-link {
-  padding: 6px 16px;
-  color: var(--text-dim);
+  padding: 6px 0;
+  color: #ffd73e;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-right: 1px solid var(--border-gold);
-  transition: color 0.2s;
+  transition: opacity 0.2s;
   cursor: pointer;
-  background: none;
-  border-top: none;
-  border-bottom: none;
-  border-left: none;
-}
-.footer-link:last-child {
-  border-right: none;
 }
 .footer-link:hover {
-  color: var(--gold);
-}
-.footer-logo {
-  font-family: "Cinzel", serif;
-  font-size: 18px;
-  color: var(--gold-dim);
-  letter-spacing: 6px;
-  margin-top: 12px;
-  text-align: center;
+  opacity: 0.75;
 }
 .footer-copy {
   text-align: center;
-  margin-top: 8px;
+  margin-bottom: 16px;
   font-size: 11px;
-  color: var(--text-dim);
+  color: #ccc;
   letter-spacing: 1px;
+}
+.footer-logo {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo img {
+  width: 180px;
+  height: auto;
 }
 body {
   background-image: url(https://capomt2.com/web/assets/ThemeFifteen/images/headerBG.jpg) !important;
