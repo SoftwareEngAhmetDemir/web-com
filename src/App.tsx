@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./App.scss";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
 import UserPanel from "./components/UserPanel/UserPanel.tsx";

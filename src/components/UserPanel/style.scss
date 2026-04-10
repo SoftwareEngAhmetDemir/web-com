@@ -6,8 +6,8 @@
 
 /* ── Header ── */
 .up-header {
-  background: linear-gradient(180deg, #9f0000 0%, #350000 100%);
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  background: linear-gradient(180deg, var(--crimson-dark) 0%, var(--crimson-deep) 100%);
+  border: 1px solid var(--border-crimson);
   border-radius: 4px 4px 0 0;
   padding: 14px 16px;
   text-align: center;
@@ -17,7 +17,7 @@
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    background: linear-gradient(to bottom, rgb(255 207 32) 20%, #fff49b 70%);
+    background: linear-gradient(to bottom, var(--gold-text-start) 20%, var(--gold-text-end) 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -29,21 +29,20 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 10px 0;
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  border: 1px solid var(--border-crimson);
   border-top: none;
   border-radius: 0 0 4px 4px;
-  background: rgba(20, 0, 0, 0.4);
+  background: var(--crimson-panel-bg);
   padding: 10px 8px;
 }
 
 .up-btn {
   width: 100%;
   padding: 11px 12px;
-  background: linear-gradient(1deg, #956a1a, #ffd746);
-  border: 2px solid #ffd64b;
+  background: linear-gradient(1deg, var(--gold-btn-dark), var(--gold-btn));
+  border: 2px solid var(--gold-btn-border);
   border-radius: 3px;
-  color: #3f0000;
+  color: var(--btn-text);
   font-weight: 700;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
@@ -63,9 +62,9 @@
 }
 
 .up-btn--logout {
-  background: linear-gradient(180deg, #9f0000 0%, #350000 100%);
-  border-color: rgba(255, 0, 0, 0.5);
-  color: #ffd746;
+  background: linear-gradient(180deg, var(--crimson-dark) 0%, var(--crimson-deep) 100%);
+  border-color: var(--border-crimson-strong);
+  color: var(--gold-btn);
   margin-top: 4px;
 
   &:hover {

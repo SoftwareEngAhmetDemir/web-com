@@ -1,19 +1,19 @@
 .customCard {
   height: 50px;
   width: 100%;
-  background: linear-gradient(0deg, #350000, #9f0000);
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  background: linear-gradient(0deg, var(--crimson-deep), var(--crimson-dark));
+  border: 1px solid var(--border-crimson);
   border-radius: 4px;
   display: flex;
   align-items: center;
-
   padding: 1rem;
 }
+
 .text {
-  background: linear-gradient(to bottom, rgb(255 207 32) 20%, #fff49b 70%);
+  background: linear-gradient(to bottom, var(--gold-text-start) 20%, var(--gold-text-end) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; /* for non-webkit browsers */
-  color: transparent; /* fallback */
+  background-clip: text;
+  color: transparent;
   font-weight: bold;
 }

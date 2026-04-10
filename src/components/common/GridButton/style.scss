@@ -2,19 +2,17 @@
   @apply inline-block;
   @apply uppercase;
   @apply font-bold;
-  @apply h-8;                     // 32px height
+  @apply h-8;
   @apply border;
- color: #3f0000 !important;
-  
   @apply transition duration-150 ease-in-out;
   @apply cursor-pointer;
-padding: 5px;
-border-width: 2px;
-border-color: #ffd64b;
-    text-transform: uppercase;
-    font-size: 12px;
-  /* Gradient background + position + repeat */
-  background: linear-gradient(1deg, #956a1a, #ffd746);
+  color: var(--btn-text) !important;
+  padding: 5px;
+  border-width: 2px;
+  border-color: var(--gold-btn-border);
+  text-transform: uppercase;
+  font-size: 12px;
+  background: linear-gradient(1deg, var(--gold-btn-dark), var(--gold-btn));
   background-position: 100% 0;
   background-repeat: no-repeat;
   font-weight: 700;
