@@ -92,7 +92,7 @@ html {
 body {
   background: var(--bg-deep);
   background-image: url(https://capomt2.com/web/assets/ThemeFifteen/images/headerBG.jpg) !important;
-  background-size: cover !important;
+  background-size: fill !important;
   background-repeat: no-repeat !important;
   color: var(--text-primary);
   font-family: "Exo 2", sans-serif;
