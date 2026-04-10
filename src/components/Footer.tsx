@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./Footer.scss";
 
@@ -16,9 +17,9 @@ export default function Footer() {
     <footer>
       <nav className="footer-links">
         {LINKS.map((link) => (
-          <a key={link.labelKey} href={link.href} className="footer-link">
+          <Link key={link.labelKey} to={link.href} className="footer-link">
             {t(link.labelKey)}
-          </a>
+          </Link>
         ))}
       </nav>
       <div className="footer-copy">{t("footer.copyright")}</div>
