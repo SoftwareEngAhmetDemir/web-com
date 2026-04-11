@@ -20,6 +20,12 @@ html {
   @apply text-[#ffd73e];
 }
 
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
 :root {
   --gold: #c9a84c;
   --gold-light: #e8cc7a;

@@ -70,6 +70,7 @@ export default function Download() {
       </h1>
 
       <CustomTable
+      noHash={true}
         columns={[
           t("download.sysReq.componentName"),
           t("download.sysReq.minReq"),
