@@ -1,27 +1,21 @@
+import { useEffect } from "react";
 import { CustomTable } from "../common/CustomTable/CustomTable";
 import { useTranslation } from "react-i18next";
-
-const data = [
-  ["AKASYADURAGI", "20", "23602", "-", "5", "0", "0"],
-  ["TR", "20", "23016", "-", "6", "4", "0"],
-  ["AMGOTMEME", "20", "22732", "-", "5", "2", "0"],
-  ["KVP", "20", "22507", "-", "4", "1", "0"],
-  ["RAMPAGE", "20", "21841", "-", "4", "0", "0"],
-  ["FBI", "20", "21716", "-", "4", "0", "0"],
-  ["GREEDALLSTAR", "20", "21682", "-", "3", "0", "0"],
-  ["WOK", "20", "21547", "-", "17", "2", "4"],
-  ["FAVELA", "20", "21436", "-", "7", "4", "1"],
-  ["SOLDELACRIME", "20", "21379", "-", "5", "1", "1"],
-  ["BARBARLAR", "20", "21214", "-", "5", "3", "1"],
-  ["KUDURTAN", "20", "21132", "-", "4", "0", "0"],
-  ["AREM", "20", "20947", "-", "2", "1", "0"],
-  ["DANTELDON", "20", "20833", "-", "6", "1", "2"],
-  ["TURKGUCU", "20", "20801", "-", "3", "1", "0"],
-  ["BIRILERII", "20", "20801", "-", "3", "1", "0"]
-];
+import { useRankingStore } from "../../store/rankingStore";
 
 export const GuildTable = () => {
   const { t } = useTranslation();
+
+  const {
+    guilds,
+    isLoadingGuilds,
+    guildsError,
+    fetchGuilds,
+  } = useRankingStore();
+
+  useEffect(() => {
+    fetchGuilds();
+  }, [fetchGuilds]);
 
   const columns = [
     t("guildTable.guildName"),
@@ -30,14 +24,37 @@ export const GuildTable = () => {
     t("guildTable.kingdom"),
     t("guildTable.win"),
     t("guildTable.draw"),
-    t("guildTable.lose")
+    t("guildTable.lose"),
   ];
+
+  const data = guilds.map((g) => [
+    g.guildName ?? "—",
+    String(g.level ?? "—"),
+    String(g.score ?? "—"),
+    String(g.kingdom ?? "—"),
+    String(g.winCount ?? "—"),
+    String(g.drawCount ?? "—"),
+    String(g.loseCount ?? "—"),
+  ]);
 
   return (
     <>
-      <h1 className="text-[2rem] font-medium text-center">{t("guildTable.title")}</h1>
+      <h1 className="text-[2rem] font-medium text-center">
+        {t("guildTable.title")}
+      </h1>
       <hr className="my-[20px]" />
-      <CustomTable columns={columns} data={data} />
+
+      {isLoadingGuilds && (
+        <p className="text-center py-8 opacity-70">{t("list.loading") ?? "Loading..."}</p>
+      )}
+
+      {guildsError && !isLoadingGuilds && (
+        <p className="text-center py-8 text-red-400">{guildsError}</p>
+      )}
+
+      {!isLoadingGuilds && !guildsError && (
+        <CustomTable columns={columns} data={data} />
+      )}
     </>
   );
 };

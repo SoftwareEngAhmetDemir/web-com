@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 import { useTranslation } from "react-i18next";
+import { useAuthStore } from "../../store/authStore";
 
 export default function ForgetPinForm() {
   const { t } = useTranslation();
+  const { forgotPassword, isLoading, error, successMessage, clearMessages } =
+    useAuthStore();
 
   const forgetPinFields: FormField[] = [
     {
@@ -13,7 +16,7 @@ export default function ForgetPinForm() {
       required: true,
       minLength: 5,
       maxLength: 12,
-      errorMessage: "Account Name is required"
+      errorMessage: "Account Name is required",
     },
     {
       name: "e-mail",
@@ -21,24 +24,45 @@ export default function ForgetPinForm() {
       placeholder: t("forgotPin.email"),
       required: true,
       maxLength: 100,
-      errorMessage: "Email is required"
-    }
+      errorMessage: "Email is required",
+    },
   ];
 
-  const handleSubmit = (data: Record<string, string | boolean>) => {
-    console.log("Forget PIN Form Submitted:", data);
+  const handleSubmit = async (data: Record<string, string | boolean>) => {
+    clearMessages();
+    try {
+      await forgotPassword({ email: data["e-mail"] as string });
+    } catch {
+      // error is set in the store
+    }
   };
 
   return (
     <>
-      <h1 className="text-[2rem] font-medium text-center">{t("forgotPin.title")}</h1>
+      <h1 className="text-[2rem] font-medium text-center">
+        {t("forgotPin.title")}
+      </h1>
       <hr className="my-[20px]" />
+
+      {error && (
+        <div className="mb-4 px-3 py-2 text-sm text-red-400 bg-red-950/40 rounded">
+          {error}
+        </div>
+      )}
+
+      {successMessage && (
+        <div className="mb-4 px-3 py-2 text-sm text-green-400 bg-green-950/40 rounded">
+          {successMessage}
+        </div>
+      )}
+
       <CustomForm
         fields={forgetPinFields}
-        submitText={t("forgotPin.sendResetEmail")}
+        submitText={isLoading ? "..." : t("forgotPin.sendResetEmail")}
         onSubmit={handleSubmit}
         submitButtonClassName="w-full"
       />
+
       <div className="flex my-5">
         {t("forgotPin.alreadyHaveAccount")}{" "}
         <Link to="/" className="text-blue-500 hover:underline">

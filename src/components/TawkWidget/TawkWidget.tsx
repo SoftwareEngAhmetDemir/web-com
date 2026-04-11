@@ -1,12 +1,9 @@
-/* eslint-disable no-var */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect } from "react";
 
 function TawkWidget() {
   useEffect(() => {
-    // Only run this once
-    var Tawk_API = (window as any).Tawk_API  || {};
-    var Tawk_LoadStart = new Date();
+    (window as any).Tawk_API = (window as any).Tawk_API || {};
+    (window as any).Tawk_LoadStart = new Date();
 
     (function () {
       var s1 = document.createElement("script");

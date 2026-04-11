@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import Navbar from "./components/NavBar/Navbar.tsx";
 import LoginForm from "./components/LoginForm/LoginForm.tsx";
@@ -11,7 +11,7 @@ import { GuildList } from "./components/GuildList/GuildList.tsx";
 import { PlayerRankingList } from "./components/PlayerRankingList/PlayerRankingList.tsx";
 import RouteView from "./routes/index.tsx";
 import { useTranslation } from "react-i18next";
-import { AuthProvider, useAuth } from "./context/AuthContext.tsx";
+import { useAuthStore } from "./store/authStore";
 
 const LANGS = [
   { code: "en", img: "https://capomt2.com/web/assets/images/en.png" },
@@ -20,13 +20,18 @@ const LANGS = [
 
 function AppInner() {
   const { i18n } = useTranslation();
-  const { user } = useAuth();
+  const { user, isInitializing, initialize } = useAuthStore();
 
   const savedLang = localStorage.getItem("lang") ?? "tr";
   const [lang, setLang] = useState(savedLang);
 
   useEffect(() => {
     i18n.changeLanguage(lang);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    initialize();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -65,7 +70,7 @@ function AppInner() {
       <div className="main-layout">
         {/* Left Sidebar */}
         <aside className="sidebar">
-          {user ? <UserPanel /> : <LoginForm />}
+          {isInitializing ? null : user ? <UserPanel /> : <LoginForm />}
           <GuildList />
         </aside>
 
@@ -89,9 +94,5 @@ function AppInner() {
 }
 
 export default function App() {
-  return (
-    <AuthProvider>
-      <AppInner />
-    </AuthProvider>
-  );
+  return <AppInner />;
 }

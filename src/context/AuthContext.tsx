@@ -1,41 +1,32 @@
-import React, { createContext, useContext, useState } from "react";
+/**
+ * AuthContext now acts as a thin bridge over the Zustand authStore.
+ * All components that already call useAuth() continue to work unchanged.
+ */
+import React, { createContext, useContext } from "react";
+import { useAuthStore } from "../store/authStore";
+import type { UserProfile } from "../services/api";
 
-export interface User {
-  accountName: string;
-  email: string;
-  dragonCoins: number;
-  lastLogin: string;
-  registerDate: string;
-  accountOwner: string;
-  accountStatus: string;
-}
+// Keep the public shape compatible with existing consumers
+export type User = UserProfile;
 
 interface AuthContextType {
   user: User | null;
-  login: (data: User) => void;
+  isLoading: boolean;
+  login: (data: User) => void; // kept for local override (e.g. optimistic update)
   logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-const DEMO_USER: User = {
-  accountName: "DragonSlayer99",
-  email: "dragon***@gmail.com",
-  dragonCoins: 12_450,
-  lastLogin: "2026-04-09 18:32",
-  registerDate: "2024-11-03",
-  accountOwner: "Ahmet Demir",
-  accountStatus: "Active",
-};
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(DEMO_USER);
+  const { user, isLoading, setUser, logout } = useAuthStore();
 
+  // login here is only a local setter — real API login lives in authStore.login()
   const login = (data: User) => setUser(data);
-  const logout = () => setUser(null);
+  const handleLogout = () => logout();
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout: handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import List from '../common/List/List';
 import { useTranslation } from 'react-i18next';
-
-const GUILDS = [
-  { name: "AKASYADURAGI", score: "24" },
-  { name: "TR", score: "23" },
-  { name: "AMGOTMEME", score: "23" },
-  { name: "KVP", score: "23" },
-  { name: "RAMPAGE", score: "22" },
-  { name: "FBI", score: "22" },
-  { name: "GREEDALLSTAR", score: "22" },
-  { name: "WOK", score: "22" },
-  { name: "FAVELA", score: "21" },
-  { name: "SOLDELACRIME", score: "21" }
-];
-
-const symbol = 'K';
+import { useRankingStore } from '../../store/rankingStore';
 
 export const GuildList: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const {
+    guildsTop10,
+    isLoadingGuildsTop10,
+    guildsError,
+    fetchGuildsTop10,
+  } = useRankingStore();
+
+  useEffect(() => {
+    fetchGuildsTop10();
+  }, [fetchGuildsTop10]);
+
+  const data = guildsTop10.map((g) => ({
+    name: g.guildName ?? "—",
+    score: String(g.score ?? "—"),
+  }));
+
   return (
     <div>
-      <List data={GUILDS} symbole={symbol} title={t('guildList.title')} />
+      <List
+        data={data}
+        symbole="K"
+        title={t('guildList.title')}
+        isLoading={isLoadingGuildsTop10}
+        error={guildsError}
+        onFullList={() => navigate('/ranking/guild')}
+      />
     </div>
   );
 };

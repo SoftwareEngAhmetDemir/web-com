@@ -12,11 +12,17 @@ const MEDALS = [
 export default function List({
   data,
   title,
-  symbole
+  symbole,
+  isLoading,
+  error,
+  onFullList,
 }: {
   data: { name: string; score: string; flag?: string }[];
   title: string;
   symbole?: string;
+  isLoading?: boolean;
+  error?: string | null;
+  onFullList?: () => void;
 }) {
   const { t } = useTranslation();
 
@@ -25,41 +31,67 @@ export default function List({
       <div className="card-header mb-2">
         <RedCard text={title} />
       </div>
-      <div className="rank-table">
-        {data.map((guild, i) => (
-          <RedCard
-            key={i}
-            text={
-              <div className="cardText grid grid-cols-7 items-center">
-                <div className="col-span-1">
-                  {i < 3 ? (
-                    <img src={MEDALS[i]} alt={`Medal ${i + 1}`} />
-                  ) : (
-                    i + 1
-                  )}
-                </div>
-                <div className="col-span-4">{guild.name}</div>
-                {guild.flag && (
+
+      {isLoading && (
+        <div className="text-center py-4 text-sm opacity-70">
+          {t("list.loading") ?? "Loading..."}
+        </div>
+      )}
+
+      {error && !isLoading && (
+        <div className="text-center py-4 text-sm text-red-400">
+          {error}
+        </div>
+      )}
+
+      {!isLoading && !error && (
+        <div className="rank-table">
+          {data.map((item, i) => (
+            <RedCard
+              key={i}
+              text={
+                <div className="cardText grid grid-cols-7 items-center">
                   <div className="col-span-1">
-                    <img
-                      width={"30"}
-                      height={"30"}
-                      src={guild.flag}
-                      alt={`Flag ${i + 1}`}
-                    />
+                    {i < 3 ? (
+                      <img src={MEDALS[i]} alt={`Medal ${i + 1}`} />
+                    ) : (
+                      i + 1
+                    )}
                   </div>
-                )}
-                <div className={"flex justify-end" + (guild.flag ? " col-span-1" : " col-span-2")}>
-                  {guild.score} <div className="text-xs">{symbole ?? null}</div>
+                  <div className="col-span-4">{item.name}</div>
+                  {item.flag && (
+                    <div className="col-span-1">
+                      <img
+                        width={"30"}
+                        height={"30"}
+                        src={item.flag}
+                        alt={`Flag ${i + 1}`}
+                      />
+                    </div>
+                  )}
+                  <div
+                    className={
+                      "flex justify-end" +
+                      (item.flag ? " col-span-1" : " col-span-2")
+                    }
+                  >
+                    {item.score}{" "}
+                    <div className="text-xs">{symbole ?? null}</div>
+                  </div>
                 </div>
-              </div>
-            }
-            classes="rank-card"
-          />
-        ))}
-      </div>
+              }
+              classes="rank-card"
+            />
+          ))}
+        </div>
+      )}
+
       <div className="buttonContainer mt-4">
-        <GridButton text={t("list.fullList")} className="listButton px-1" />
+        <GridButton
+          text={t("list.fullList")}
+          className="listButton px-1"
+          onClick={onFullList}
+        />
       </div>
     </div>
   );

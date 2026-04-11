@@ -1,5 +1,4 @@
 // FacebookWidget.jsx
-import React from "react";
 
 export default function FacebookWidget() {
   return (
