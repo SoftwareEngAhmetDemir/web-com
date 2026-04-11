@@ -4,9 +4,9 @@
   @apply font-bold;
   @apply h-8;
   @apply border;
-  @apply transition duration-150 ease-in-out;
   @apply cursor-pointer;
   color: var(--btn-text) !important;
+  -webkit-text-fill-color: var(--btn-text);
   padding: 5px;
   border-width: 2px;
   border-color: var(--gold-btn-border);
@@ -16,4 +16,17 @@
   background-position: 100% 0;
   background-repeat: no-repeat;
   font-weight: 700;
+  transition:
+    filter 0.15s ease,
+    transform 0.1s ease;
+
+  &:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    filter: brightness(0.95);
+    transform: translateY(0);
+  }
 }
