@@ -10,7 +10,11 @@ export interface CharacterRankingItem {
   level?: number;
   guildName?: string;
   guild?: string;
-  playTime?: string;
+  playDays?: number;
+  playHours?: number;
+  playMinutes?: number;
+  playDurationText?: string;
+  kingdomImageUrl?: string | null;
   empire?: number;
 }
 
@@ -25,15 +29,22 @@ export interface GuildRankingItem {
   loseCount?: number;
 }
 
+export interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}
+
 export interface UserProfile {
+  id?: string;
   userName?: string;
   fullName?: string;
   email?: string;
   phoneNumber?: string;
-  dragonCoins?: number;
-  lastLogin?: string;
-  registerDate?: string;
-  accountStatus?: string;
+  dragonMoney?: number;
+  lastLoginAt?: string;
+  createdAt?: string;
+  isActive?: boolean;
   howDidYouFindUs?: string;
 }
 
@@ -203,7 +214,11 @@ export const rankingsApi = {
 // ─── User Endpoints ───────────────────────────────────────────────────────────
 
 export const usersApi = {
-  getMe: () => request<UserProfile>("/api/users/me"),
+  getMe: async (): Promise<UserProfile> => {
+    const res = await request<ApiResponse<UserProfile>>("/api/users/me");
+    const data = res.data;
+    return { ...data, dragonMoney: data.dragonMoney ?? 0 };
+  },
 
   updateProfile: (data: UpdateProfileRequest) =>
     request("/api/users/update-profile", {

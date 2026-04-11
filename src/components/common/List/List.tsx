@@ -34,7 +34,7 @@ export default function List({
 
       {isLoading && (
         <div className="text-center py-4 text-sm opacity-70">
-          {t("list.loading") ?? "Loading..."}
+          {t("list.loading")}
         </div>
       )}
 

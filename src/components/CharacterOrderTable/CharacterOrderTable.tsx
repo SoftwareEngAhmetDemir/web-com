@@ -32,7 +32,9 @@ export const CharacterOrderTable = () => {
     c.characterName ?? c.name ?? "—",
     String(c.level ?? "—"),
     c.guildName ?? c.guild ?? "—",
-    c.playTime ?? "—",
+    (c.playDays != null || c.playHours != null || c.playMinutes != null)
+      ? `${c.playDays ?? 0}${t("characterTable.days")} ${c.playHours ?? 0}${t("characterTable.hours")} ${c.playMinutes ?? 0}${t("characterTable.minutes")}`
+      : "—",
     c.empire
       ? { src: EMPIRE_FLAG_URL(c.empire), alt: `Empire ${c.empire}` }
       : "—",
@@ -46,7 +48,7 @@ export const CharacterOrderTable = () => {
       <hr className="my-[20px]" />
 
       {isLoadingCharacters && (
-        <p className="text-center py-8 opacity-70">{t("list.loading") ?? "Loading..."}</p>
+        <p className="text-center py-8 opacity-70">{t("list.loading")}</p>
       )}
 
       {charactersError && !isLoadingCharacters && (

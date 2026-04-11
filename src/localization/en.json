@@ -1,6 +1,6 @@
 {
   "nav": {
-    "home": "Ana Sayfa",
+    "home": "Home",
     "register": "Register",
     "characterRanking": "Character S.",
     "download": "Download",
@@ -97,7 +97,10 @@
     "level": "Level",
     "guild": "Guild",
     "playTime": "Play Time",
-    "kingdom": "Kingdom"
+    "kingdom": "Kingdom",
+    "days": "d",
+    "hours": "h",
+    "minutes": "min"
   },
   "support": {
     "title": "Support",
@@ -105,7 +108,8 @@
     "loginRequired": "You must be logged in to use the support system."
   },
   "list": {
-    "fullList": "Full List +"
+    "fullList": "Full List +",
+    "loading": "Loading..."
   },
   "panel": {
     "title": "Control Panel",
@@ -118,6 +122,7 @@
     "accountOwner": "Account Owner",
     "accountStatus": "Account Status",
     "active": "Active",
+    "inactive": "Inactive",
     "loadEP": "LOAD EP",
     "useEPCoupon": "USE EP COUPON",
     "myEPCoupons": "MY USED EP COUPONS",

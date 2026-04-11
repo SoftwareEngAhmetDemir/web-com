@@ -45,7 +45,7 @@ export const GuildTable = () => {
       <hr className="my-[20px]" />
 
       {isLoadingGuilds && (
-        <p className="text-center py-8 opacity-70">{t("list.loading") ?? "Loading..."}</p>
+        <p className="text-center py-8 opacity-70">{t("list.loading")}</p>
       )}
 
       {guildsError && !isLoadingGuilds && (

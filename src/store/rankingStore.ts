@@ -56,6 +56,8 @@ export const useRankingStore = create<RankingState>((set) => ({
   guildsError: null,
 
   fetchCharactersTop10: async () => {
+    const { isLoadingCharactersTop10 } = useRankingStore.getState();
+    if (isLoadingCharactersTop10) return;
     set({ isLoadingCharactersTop10: true, charactersError: null });
     try {
       const data = await rankingsApi.getCharactersTop10();
@@ -70,6 +72,8 @@ export const useRankingStore = create<RankingState>((set) => ({
   },
 
   fetchCharacters: async () => {
+    const { isLoadingCharacters } = useRankingStore.getState();
+    if (isLoadingCharacters) return;
     set({ isLoadingCharacters: true, charactersError: null });
     try {
       const data = await rankingsApi.getCharacters();
@@ -84,6 +88,8 @@ export const useRankingStore = create<RankingState>((set) => ({
   },
 
   fetchGuildsTop10: async () => {
+    const { isLoadingGuildsTop10 } = useRankingStore.getState();
+    if (isLoadingGuildsTop10) return;
     set({ isLoadingGuildsTop10: true, guildsError: null });
     try {
       const data = await rankingsApi.getGuildsTop10();
@@ -98,6 +104,8 @@ export const useRankingStore = create<RankingState>((set) => ({
   },
 
   fetchGuilds: async () => {
+    const { isLoadingGuilds } = useRankingStore.getState();
+    if (isLoadingGuilds) return;
     set({ isLoadingGuilds: true, guildsError: null });
     try {
       const data = await rankingsApi.getGuilds();

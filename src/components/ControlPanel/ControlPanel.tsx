@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useAuthStore } from "../../store/authStore";
 import "./style.scss";
 import { RedCard } from "../common/RedCard/RedCard";
+import dayjs from "dayjs";
 
 export default function ControlPanel() {
   const { t } = useTranslation();
@@ -17,11 +18,11 @@ export default function ControlPanel() {
   const infoRows = [
     { label: t("panel.accountName"),   value: user?.userName },
     { label: t("panel.email"),         value: user?.email },
-    { label: t("panel.dragonCoins"),   value: user?.dragonCoins },
-    { label: t("panel.lastLogin"),     value: user?.lastLogin },
-    { label: t("panel.registerDate"),  value: user?.registerDate },
+    { label: t("panel.dragonCoins"),   value: user?.dragonMoney ?? 0 },
+    { label: t("panel.lastLogin"),     value: user?.lastLoginAt ? dayjs(user.lastLoginAt).format("DD MMMM YYYY HH:mm:ss") : undefined },
+    { label: t("panel.registerDate"),  value: user?.createdAt ? dayjs(user.createdAt).format("DD MMMM YYYY HH:mm:ss") : undefined },
     { label: t("panel.accountOwner"),  value: user?.fullName },
-    { label: t("panel.accountStatus"), value: user?.accountStatus },
+    { label: t("panel.accountStatus"), value: user?.isActive ? t("panel.active") : t("panel.inactive") },
   ];
 
   const buttons = [

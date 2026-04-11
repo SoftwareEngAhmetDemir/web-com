@@ -97,7 +97,10 @@
     "level": "Seviye",
     "guild": "Lonca",
     "playTime": "Oyun Süresi",
-    "kingdom": "Krallık"
+    "kingdom": "Krallık",
+    "days": "gün",
+    "hours": "sa",
+    "minutes": "dk"
   },
   "support": {
     "title": "Destek",
@@ -105,7 +108,8 @@
     "loginRequired": "Destek sistemini kullanmak için giriş yapmalısınız."
   },
   "list": {
-    "fullList": "Tam Liste +"
+    "fullList": "Tam Liste +",
+    "loading": "Yükleniyor..."
   },
   "panel": {
     "title": "Kontrol Paneli",
@@ -118,6 +122,7 @@
     "accountOwner": "Hesap Sahibi",
     "accountStatus": "Hesap Durumu",
     "active": "Aktif",
+    "inactive": "Pasif",
     "loadEP": "EP YÜKLE",
     "useEPCoupon": "EP KUPONU KULLAN",
     "myEPCoupons": "KULLANDIĞIM EP KUPONLARIM",
