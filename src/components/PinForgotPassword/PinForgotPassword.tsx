@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 import { useTranslation } from "react-i18next";
 import { useAuthStore } from "../../store/authStore";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 export default function ForgetPinForm() {
   const { t } = useTranslation();
@@ -56,12 +57,19 @@ export default function ForgetPinForm() {
         </div>
       )}
 
-      <CustomForm
-        fields={forgetPinFields}
-        submitText={isLoading ? "..." : t("forgotPin.sendResetEmail")}
-        onSubmit={handleSubmit}
-        submitButtonClassName="w-full"
-      />
+      <div className="relative">
+        {isLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center rounded bg-black/60 backdrop-blur-sm">
+            <LoadingSpinner text={t("list.loading")} size="md" />
+          </div>
+        )}
+        <CustomForm
+          fields={forgetPinFields}
+          submitText={t("forgotPin.sendResetEmail")}
+          onSubmit={handleSubmit}
+          submitButtonClassName="w-full"
+        />
+      </div>
 
       <div className="flex my-5">
         {t("forgotPin.alreadyHaveAccount")}{" "}

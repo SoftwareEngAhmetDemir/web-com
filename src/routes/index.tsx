@@ -8,6 +8,7 @@ import { CharacterOrderTable } from "../components/CharacterOrderTable/Character
 import { GuildTable } from "../components/GuildTable/GuildTable";
 import { Support } from "../components/Support/Support";
 import ControlPanel from "../components/ControlPanel/ControlPanel";
+import Download from "../components/Download/Download";
 
 export default function RouteView() {
   return (
@@ -21,6 +22,7 @@ export default function RouteView() {
       <Route path="/ranking/guild"   element={<GuildTable />} />
       <Route path="/support"         element={<Support />} />
       <Route path="/dashboard"       element={<ControlPanel />} />
+      <Route path="/download"        element={<Download />} />
     </Routes>
   );
 }

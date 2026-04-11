@@ -3,6 +3,7 @@ import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuthStore } from "../../store/authStore";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 export default function LoginForm() {
   const { t } = useTranslation();
@@ -64,10 +65,15 @@ export default function LoginForm() {
         </div>
       )}
 
-      <div className="p-2">
+      <div className="relative p-2">
+        {isLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center rounded bg-black/60 backdrop-blur-sm">
+            <LoadingSpinner text={t("list.loading")} size="md" />
+          </div>
+        )}
         <CustomForm
           fields={fields}
-          submitText={isLoading ? "..." : t("login.loginButton")}
+          submitText={t("login.loginButton")}
           onSubmit={handleLogin}
         />
       </div>

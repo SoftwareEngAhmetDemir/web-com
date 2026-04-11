@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { CustomTable } from "../common/CustomTable/CustomTable";
 import { useTranslation } from "react-i18next";
 import { useRankingStore } from "../../store/rankingStore";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 export const GuildTable = () => {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ export const GuildTable = () => {
       <hr className="my-[20px]" />
 
       {isLoadingGuilds && (
-        <p className="text-center py-8 opacity-70">{t("list.loading")}</p>
+        <LoadingSpinner text={t("list.loading")} size="lg" />
       )}
 
       {guildsError && !isLoadingGuilds && (

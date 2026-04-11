@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { CustomTable } from "../common/CustomTable/CustomTable";
 import { useTranslation } from "react-i18next";
 import { useRankingStore } from "../../store/rankingStore";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 const EMPIRE_FLAG_URL = (empire: number) =>
   `https://capomt2.com/web/assets/images/empire/${empire}.jpg`;
@@ -48,7 +49,7 @@ export const CharacterOrderTable = () => {
       <hr className="my-[20px]" />
 
       {isLoadingCharacters && (
-        <p className="text-center py-8 opacity-70">{t("list.loading")}</p>
+        <LoadingSpinner text={t("list.loading")} size="lg" />
       )}
 
       {charactersError && !isLoadingCharacters && (

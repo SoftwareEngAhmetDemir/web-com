@@ -2,6 +2,7 @@ import { RedCard } from "../RedCard/RedCard";
 import "./style.scss";
 import { GridButton } from "../GridButton/GridButton";
 import { useTranslation } from "react-i18next";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 const MEDALS = [
   "https://capomt2.com/web/assets/ThemeFifteen/images/1.png",
@@ -33,9 +34,7 @@ export default function List({
       </div>
 
       {isLoading && (
-        <div className="text-center py-4 text-sm opacity-70">
-          {t("list.loading")}
-        </div>
+        <LoadingSpinner text={t("list.loading")} size="sm" />
       )}
 
       {error && !isLoading && (

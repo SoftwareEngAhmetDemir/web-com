@@ -2,6 +2,7 @@ import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuthStore } from "../../store/authStore";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 export default function RegisterForm() {
   const { t } = useTranslation();
@@ -149,11 +150,18 @@ export default function RegisterForm() {
           </div>
         )}
 
-        <CustomForm
-          fields={registerFields}
-          submitText={isLoading ? "..." : t("register.registerButton")}
-          onSubmit={handleRegister}
-        />
+        <div className="relative">
+          {isLoading && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center rounded bg-black/60 backdrop-blur-sm">
+              <LoadingSpinner text={t("list.loading")} size="md" />
+            </div>
+          )}
+          <CustomForm
+            fields={registerFields}
+            submitText={t("register.registerButton")}
+            onSubmit={handleRegister}
+          />
+        </div>
       </div>
 
       <div className="flex my-5">

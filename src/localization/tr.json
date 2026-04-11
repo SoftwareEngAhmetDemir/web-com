@@ -102,6 +102,28 @@
     "hours": "sa",
     "minutes": "dk"
   },
+  "download": {
+    "title": "İndirme Linki",
+    "tekLink": "Tek Link",
+    "googleDrive": "Google Drive",
+    "downloadGame": "Oyunu İndir",
+    "sysReq": {
+      "title": "Sistem Gereksinimleri",
+      "componentName": "Bileşen Adı",
+      "minReq": "Minimum Gereksinim",
+      "modReq": "Önerilen Gereksinim",
+      "freeSpace": "Boş Alan (HDD)",
+      "memory": "Bellek (RAM)",
+      "cpu": "İşlemci",
+      "gpu": "Ekran Kartı (GPU)",
+      "os": "İşletim Sistemi",
+      "directx": "DirectX",
+      "gbUp": "{{n}}GB ve üzeri",
+      "cpuMod": "Intel Core i3 ve üzeri",
+      "osMod": "Win 7 ve üzeri",
+      "directxMod": "9 ve üzeri"
+    }
+  },
   "support": {
     "title": "Destek",
     "oops": "Hata!",

@@ -102,6 +102,28 @@
     "hours": "h",
     "minutes": "min"
   },
+  "download": {
+    "title": "Download Link",
+    "tekLink": "Tek Link",
+    "googleDrive": "Google Drive",
+    "downloadGame": "Download Game",
+    "sysReq": {
+      "title": "System Requirements",
+      "componentName": "Component Name",
+      "minReq": "Minimum Requirement",
+      "modReq": "Moderate Requirement",
+      "freeSpace": "Free Space (HDD)",
+      "memory": "Memory (RAM)",
+      "cpu": "CPU",
+      "gpu": "Graphics Card (GPU)",
+      "os": "Operating System",
+      "directx": "DirectX",
+      "gbUp": "{{n}}GB and up",
+      "cpuMod": "Intel Core i3 and higher",
+      "osMod": "Win 7 and above",
+      "directxMod": "9 and up"
+    }
+  },
   "support": {
     "title": "Support",
     "oops": "Oops!",
