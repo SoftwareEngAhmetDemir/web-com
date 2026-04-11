@@ -55,9 +55,9 @@ export default function ControlPanel() {
               }`}
               style={i % 2 !== 0 ? { background: "transparent" } : undefined}
               text={
-                <div className="flex">
-                  <span className="cp-info-label w-[150px]">{row.label}:</span>
-                  <span className="cp-info-value">{row.value ?? "—"}</span>
+                <div className="flex flex-wrap gap-x-2">
+                  <span className="cp-info-label w-full sm:w-[150px] shrink-0">{row.label}:</span>
+                  <span className="cp-info-value break-all">{row.value ?? "—"}</span>
                 </div>
               }
             />
@@ -65,7 +65,7 @@ export default function ControlPanel() {
         ))}
       </div>
 
-      <div className="cp-buttons">
+      <div className="cp-buttons grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3">
         {buttons.map((btn) => (
           <button key={btn.label} className="cp-btn" onClick={btn.onClick}>
             {btn.label}

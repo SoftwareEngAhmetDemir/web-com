@@ -9,7 +9,8 @@ interface CustomTableProps {
 
 export const CustomTable: React.FC<CustomTableProps> = ({ columns, data }) => {
   return (
-    <table className="w-full table-fixed border-collapse">
+    <div className="w-full overflow-x-auto -mx-1 px-1">
+    <table className="w-full min-w-[480px] table-fixed border-collapse">
       <thead>
         <tr>
           <th className="w-[40px] px-2 py-2 text-center">#</th>
@@ -40,5 +41,6 @@ export const CustomTable: React.FC<CustomTableProps> = ({ columns, data }) => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 };

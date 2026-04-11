@@ -47,7 +47,8 @@ function AppInner() {
   ];
 
   return (
-    <div className="site-wrap">
+    <div className="max-w-[1440px] mx-auto px-3 sm:px-5">
+      {/* Language picker */}
       <ul className="languagepicker">
         {ordered.map((l, i) => (
           <li
@@ -67,24 +68,80 @@ function AppInner() {
 
       <Navbar />
 
-      <div className="main-layout">
-        {/* Left Sidebar */}
-        <aside className="sidebar">
-          {isInitializing ? null : user ? <UserPanel /> : <LoginForm />}
-          <GuildList />
-        </aside>
+      {/*
+        Mobile  → flex-col, ordered by `order-*`
+        Desktop → 3-col × 2-row grid, items placed explicitly
+                  Col 1 : auth panel (row 1) + guild list (row 2)
+                  Col 2 : main content (spans both rows)
+                  Col 3 : right sidebar (spans both rows)
+      */}
+      <div className="
+        flex flex-col
+        lg:grid lg:grid-cols-[2fr_4.5fr_2fr] lg:grid-rows-[auto_1fr]
+        relative z-[1]
+      ">
 
-        {/* Center Content */}
-        <main className="content">
+        {/* ── Auth panel (UserPanel or LoginForm) ──
+            mobile : first (order-1)
+            desktop: left col, top row
+        */}
+        <div className="
+          order-1
+          lg:col-start-1 lg:row-start-1
+          p-3
+          border-b border-[var(--border-gold)]
+          lg:border-b-0 lg:border-r lg:border-[var(--border-gold)]
+        ">
+          {!isInitializing && (user ? <UserPanel /> : <LoginForm />)}
+        </div>
+
+        {/* ── Center content ──
+            mobile : second (order-2)
+            desktop: middle col, spans both rows
+        */}
+        <main className="
+          order-2
+          lg:col-start-2 lg:row-start-1 lg:row-span-2
+          p-4 sm:p-6
+          bg-[var(--bg-mid)]
+          border-x border-[var(--border-gold)]
+          min-h-[400px]
+        ">
           <RouteView />
         </main>
 
-        {/* Right Sidebar */}
-        <aside className="sidebar right">
-          <DownloadBanner />
-          <StatsCard activePlayers={150738} />
-          <PlayerRankingList />
+        {/* ── Guild list ──
+            mobile : third (order-3), directly after content
+            desktop: left col, bottom row
+        */}
+        <div className="
+          order-3
+          lg:col-start-1 lg:row-start-2
+          p-3
+          border-b border-[var(--border-gold)]
+          lg:border-b-0 lg:border-r lg:border-[var(--border-gold)]
+        ">
+          <GuildList />
+        </div>
+
+        {/* ── Right sidebar ──
+            mobile : fourth (order-4)
+            desktop: right col, spans both rows
+        */}
+        <aside className="
+          order-4
+          lg:col-start-3 lg:row-start-1 lg:row-span-2
+          p-3
+          border-b border-[var(--border-gold)]
+          lg:border-b-0 lg:border-l lg:border-[var(--border-gold)]
+        ">
+          <div className="lg:sticky lg:top-4 space-y-4">
+            <DownloadBanner />
+            <StatsCard activePlayers={150738} />
+            <PlayerRankingList />
+          </div>
         </aside>
+
       </div>
 
       <Footer />

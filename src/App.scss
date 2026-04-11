@@ -1,35 +1,14 @@
-/* ─── Site Wrapper ─── */
-.site-wrap {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* ─── Decorative hero lines ─── */
+.hero-line,
+.hero-line2 {
+  display: none;
 }
 
-/* ─── Main Layout ─── */
-.main-layout {
-  display: grid;
-  grid-template-columns: 2fr 4.5fr 2fr;
-  position: relative;
-  z-index: 1;
-}
-
-/* ─── Sidebar ─── */
-.sidebar {
-  border-right: 1px solid var(--border-gold);
-}
-.sidebar.right {
-  border-right: none;
-  border-left: 1px solid var(--border-gold);
-}
-
-/* ─── Center Content ─── */
-.content {
-  background: var(--bg-mid);
-  border-left: 1px solid var(--border-gold);
-  border-right: 1px solid var(--border-gold);
-  padding: 24px;
-  position: relative;
-  z-index: 1;
+@media (min-width: 1024px) {
+  .hero-line,
+  .hero-line2 {
+    display: block;
+  }
 }
 
 /* ─── Language Picker ─── */
@@ -44,34 +23,34 @@
   overflow: hidden;
   transition: all 0.3s ease;
   z-index: 999;
-}
 
-.languagepicker li {
-  list-style: none;
-}
+  li {
+    list-style: none;
+  }
 
-.languagepicker li:nth-child(2) {
-  max-height: 0;
-  pointer-events: none;
-  transition: max-height 0.1s ease-in-out;
-}
+  li:nth-child(2) {
+    max-height: 0;
+    pointer-events: none;
+    transition: max-height 0.1s ease-in-out;
+  }
 
-.languagepicker:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 
-.languagepicker:hover li:nth-child(2) {
-  opacity: 1;
-  max-height: 60px;
-  pointer-events: auto;
-  transition: all 0.3s ease;
-}
+  &:hover li:nth-child(2) {
+    opacity: 1;
+    max-height: 60px;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+  }
 
-.languagepicker img {
-  width: 35px;
-  height: 25px;
-  object-fit: cover;
-  cursor: pointer;
+  img {
+    width: 35px;
+    height: 25px;
+    object-fit: cover;
+    cursor: pointer;
+  }
 }
 
 .sepatator {

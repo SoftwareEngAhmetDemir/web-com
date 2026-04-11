@@ -90,12 +90,18 @@ html {
 }
 
 body {
-  background: var(--bg-deep);
-  background-image: url(https://capomt2.com/web/assets/ThemeFifteen/images/headerBG.jpg) !important;
-  background-size: fill !important;
-  background-repeat: no-repeat !important;
+  background-color: var(--bg-deep);
+  background-image: url(https://capomt2.com/web/assets/ThemeFifteen/images/headerBG.jpg);
+  background-size: fill;
+  background-repeat: no-repeat;
+
   color: var(--text-primary);
   font-family: "Exo 2", sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  @media (max-width: 700px) {
+background-size: 100% 100dvh;
+    background-position: center top;
+    background-attachment: fixed;
+  }
 }
