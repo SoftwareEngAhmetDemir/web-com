@@ -36,8 +36,8 @@ export const CharacterOrderTable = () => {
     (c.playDays != null || c.playHours != null || c.playMinutes != null)
       ? `${c.playDays ?? 0}${t("characterTable.days")} ${c.playHours ?? 0}${t("characterTable.hours")} ${c.playMinutes ?? 0}${t("characterTable.minutes")}`
       : "—",
-    c.empire
-      ? { src: EMPIRE_FLAG_URL(c.empire), alt: `Empire ${c.empire}` }
+    (c.kingdomImageUrl ?? (c.empire != null ? EMPIRE_FLAG_URL(c.empire) : null))
+      ? { src: c.kingdomImageUrl ?? EMPIRE_FLAG_URL(c.empire!), alt: `Empire ${c.empire ?? ""}` }
       : "—",
   ] as (string | { src: string; alt?: string })[]);
 

@@ -49,7 +49,7 @@ export default function List({
             <RedCard
               key={i}
               text={
-                <div className="cardText grid grid-cols-7 items-center">
+                <div className="cardText grid grid-cols-7 items-center overflow-hidden">
                   <div className="col-span-1">
                     {i < 3 ? (
                       <img src={MEDALS[i]} alt={`Medal ${i + 1}`} />
@@ -57,7 +57,7 @@ export default function List({
                       i + 1
                     )}
                   </div>
-                  <div className="col-span-4">{item.name}</div>
+                  <div className="col-span-4 truncate min-w-0">{item.name}</div>
                   {item.flag && (
                     <div className="col-span-1">
                       <img

@@ -18,7 +18,7 @@ interface CustomTableProps {
 
 export const CustomTable: React.FC<CustomTableProps> = ({ columns, data, noHash }) => {
   return (
-    <div className="-mx-1 px-1">
+    <div className="w-full overflow-x-auto">
       <Table className="min-w-[480px]">
         <TableHeader>
           {!noHash && (
@@ -43,12 +43,12 @@ export const CustomTable: React.FC<CustomTableProps> = ({ columns, data, noHash 
               }`}
             >
               {!noHash && (
-                <TableCell className="w-[40px] px-2 py-2 text-center whitespace-nowrap">
+                <TableCell className="w-[40px] px-2 py-2 text-center">
                   {rowIndex + 1}
                 </TableCell>
               )}
               {row.map((cell, cellIndex) => (
-                <TableCell key={cellIndex} className="px-2 py-2 whitespace-nowrap">
+                <TableCell key={cellIndex} className="px-2 py-2 break-words">
                   {typeof cell === "string" ? (
                     cell
                   ) : (

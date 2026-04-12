@@ -14,7 +14,7 @@ export const PlayerRankingList: React.FC = () => {
   const {
     charactersTop10,
     isLoadingCharactersTop10,
-    charactersError,
+    charactersTop10Error,
     fetchCharactersTop10,
   } = useRankingStore();
 
@@ -25,7 +25,7 @@ export const PlayerRankingList: React.FC = () => {
   const data = charactersTop10.map((c) => ({
     name: c.characterName ?? c.name ?? "—",
     score: String(c.level ?? "—"),
-    flag: c.empire ? EMPIRE_FLAG_URL(c.empire) : undefined,
+    flag: c.kingdomImageUrl ?? (c.empire != null ? EMPIRE_FLAG_URL(c.empire) : undefined),
   }));
 
   return (
@@ -35,7 +35,7 @@ export const PlayerRankingList: React.FC = () => {
         symbole="LV"
         title={t('playerList.title')}
         isLoading={isLoadingCharactersTop10}
-        error={charactersError}
+        error={charactersTop10Error}
         onFullList={() => navigate('/ranking/player')}
       />
     </div>

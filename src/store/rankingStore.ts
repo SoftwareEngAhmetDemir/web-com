@@ -24,6 +24,7 @@ interface RankingState {
   characters: CharacterRankingItem[];
   isLoadingCharactersTop10: boolean;
   isLoadingCharacters: boolean;
+  charactersTop10Error: string | null;
   charactersError: string | null;
 
   // Guilds
@@ -46,6 +47,7 @@ export const useRankingStore = create<RankingState>((set) => ({
   characters: [],
   isLoadingCharactersTop10: false,
   isLoadingCharacters: false,
+  charactersTop10Error: null,
   charactersError: null,
 
   // Guilds
@@ -58,14 +60,14 @@ export const useRankingStore = create<RankingState>((set) => ({
   fetchCharactersTop10: async () => {
     const { isLoadingCharactersTop10 } = useRankingStore.getState();
     if (isLoadingCharactersTop10) return;
-    set({ isLoadingCharactersTop10: true, charactersError: null });
+    set({ isLoadingCharactersTop10: true, charactersTop10Error: null });
     try {
       const data = await rankingsApi.getCharactersTop10();
       set({ charactersTop10: toArray<CharacterRankingItem>(data), isLoadingCharactersTop10: false });
     } catch (err) {
       set({
         isLoadingCharactersTop10: false,
-        charactersError:
+        charactersTop10Error:
           err instanceof Error ? err.message : "Failed to load character rankings",
       });
     }
