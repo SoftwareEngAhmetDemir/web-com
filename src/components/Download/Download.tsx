@@ -18,8 +18,8 @@ export default function Download() {
   const { t } = useTranslation();
 
   const downloadLinks: DownloadLink[] = [
-    { label: t("download.tekLink"),     url: "#" },
-    { label: t("download.googleDrive"), url: "#" },
+    { label: t("download.tekLink"),     url: "https://cloud.turklokasyon.org/Capo2_FullPack.rar" },
+    { label: t("download.googleDrive"), url: "https://drive.google.com/file/d/14bjt4IiVO_9lJxJ1zjmM9G_UVqfn3mRB/view?usp=sharing" },
   ];
 
   const sysReq: SysReqRow[] = [

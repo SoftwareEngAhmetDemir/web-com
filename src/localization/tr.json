@@ -120,6 +120,37 @@
       "agreementRequired": "Üyelik sözleşmesini kabul etmeniz gerekiyor"
     }
   },
+  "coupon": {
+    "enterCode": "Kodunu Gir",
+    "codePlaceholder": "Kupon Kodu",
+    "submitButton": "KULLAN",
+    "successMessage": "Kupon başarıyla uygulandı!",
+    "errorGeneric": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "validation": {
+      "codeRequired": "Lütfen bir kupon kodu girin",
+      "captchaRequired": "Lütfen reCAPTCHA doğrulamasını tamamlayın"
+    }
+  },
+  "changeEmail": {
+    "title": "E-Posta Değiştir",
+    "currentPassword": "Mevcut Şifre",
+    "newEmail": "Yeni E-Posta Adresi",
+    "confirmEmail": "Yeni E-Posta Adresini Onayla",
+    "submitButton": "E-Postayı Güncelle",
+    "backToDashboard": "← Panele Geri Dön",
+    "successMessage": "E-posta adresi başarıyla güncellendi. Yönlendiriliyor…",
+    "errorGeneric": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "validation": {
+      "currentPasswordRequired": "Mevcut şifre zorunludur",
+      "currentPasswordMin": "Şifre en az 6 karakter olmalıdır",
+      "newEmailRequired": "Yeni e-posta adresi zorunludur",
+      "newEmailInvalid": "Lütfen geçerli bir e-posta adresi girin",
+      "newEmailMax": "E-posta en fazla 100 karakter olmalıdır",
+      "confirmEmailRequired": "Lütfen yeni e-posta adresinizi onaylayın",
+      "confirmEmailInvalid": "Lütfen geçerli bir e-posta adresi girin",
+      "emailMismatch": "E-posta adresleri eşleşmiyor"
+    }
+  },
   "forgotPassword": {
     "title": "Şifremi Unuttum",
     "accountName": "Hesap Adı (5-15 Karakter Arası)",

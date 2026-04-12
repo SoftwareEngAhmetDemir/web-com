@@ -120,6 +120,37 @@
       "agreementRequired": "You must accept the membership agreement"
     }
   },
+  "coupon": {
+    "enterCode": "Enter Your Code",
+    "codePlaceholder": "Coupon Code",
+    "submitButton": "USE",
+    "successMessage": "Coupon applied successfully!",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "validation": {
+      "codeRequired": "Please enter a coupon code",
+      "captchaRequired": "Please complete the reCAPTCHA verification"
+    }
+  },
+  "changeEmail": {
+    "title": "Change E-Mail",
+    "currentPassword": "Current Password",
+    "newEmail": "New Email Address",
+    "confirmEmail": "Confirm New Email Address",
+    "submitButton": "Update Email",
+    "backToDashboard": "← Back to Dashboard",
+    "successMessage": "Email address updated successfully. Redirecting…",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "validation": {
+      "currentPasswordRequired": "Current password is required",
+      "currentPasswordMin": "Password must be at least 6 characters",
+      "newEmailRequired": "New email address is required",
+      "newEmailInvalid": "Please enter a valid email address",
+      "newEmailMax": "Email must be at most 100 characters",
+      "confirmEmailRequired": "Please confirm your new email address",
+      "confirmEmailInvalid": "Please enter a valid email address",
+      "emailMismatch": "Email addresses do not match"
+    }
+  },
   "forgotPassword": {
     "title": "Forgot Password",
     "accountName": "Account Name (Between 5-15 Characters)",

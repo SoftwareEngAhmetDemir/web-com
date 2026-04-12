@@ -26,11 +26,11 @@ export default function ControlPanel() {
   ];
 
   const buttons = [
-    { label: t("panel.loadEP"),              onClick: () => {} },
-    { label: t("panel.useEPCoupon"),         onClick: () => {} },
+    { label: t("panel.loadEP"),              onClick: () => navigate("/Payment/Buy") },
+    { label: t("panel.useEPCoupon"),         onClick: () => navigate("/Coupon/Index") },
     { label: t("panel.myEPCoupons"),         onClick: () => {} },
     { label: t("panel.supportSystem"),       onClick: () => navigate("/support") },
-    { label: t("panel.changeEmail"),         onClick: () => {} },
+    { label: t("panel.changeEmail"),         onClick: () => navigate("/change-email") },
     { label: t("panel.changePassword"),      onClick: () => navigate("/forgot-password") },
     { label: t("panel.changePinPassword"),   onClick: () => navigate("/forgot-pin") },
     { label: t("panel.changeDeleteCode"),    onClick: () => {} },
