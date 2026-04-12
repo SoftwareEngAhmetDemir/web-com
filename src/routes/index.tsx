@@ -10,6 +10,7 @@ import { CharacterOrderTable } from "../components/CharacterOrderTable/Character
 import { GuildTable } from "../components/GuildTable/GuildTable";
 import { Support } from "../components/Support/Support";
 import ControlPanel from "../components/ControlPanel/ControlPanel";
+import { PanelLogTable } from "../components/PanelLogTable/PanelLogTable";
 import Download from "../components/Download/Download";
 
 export default function RouteView() {
@@ -25,9 +26,10 @@ export default function RouteView() {
       <Route path="/Coupon/Index"    element={<UseEPCoupon />} />
       <Route path="/ranking/player"  element={<CharacterOrderTable />} />
       <Route path="/ranking/guild"   element={<GuildTable />} />
-      <Route path="/support"         element={<Support />} />
-      <Route path="/dashboard"       element={<ControlPanel />} />
-      <Route path="/download"        element={<Download />} />
+      <Route path="/support"           element={<Support />} />
+      <Route path="/controlPanel"     element={<ControlPanel />} />
+      <Route path="/ControlPanel/Log" element={<PanelLogTable />} />
+      <Route path="/download"         element={<Download />} />
     </Routes>
   );
 }

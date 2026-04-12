@@ -18,7 +18,7 @@ export default function LoginForm() {
         password: data["password"] as string,
         pin: data["pin"] as string,
       });
-      navigate("/dashboard");
+      navigate("/controlPanel");
     } catch {
       // error is set in the store — no additional handling needed
     }

@@ -14,7 +14,7 @@ export default function UserPanel() {
   };
 
   const buttons = [
-    { label: t("panel.controlPanel"),  onClick: () => navigate("/dashboard") },
+    { label: t("panel.controlPanel"),  onClick: () => navigate("/controlPanel") },
     { label: t("panel.supportSystem"), onClick: () => navigate("/support") },
     { label: t("panel.changePassword"), onClick: () => navigate("/forgot-password") },
     { label: t("panel.logout"),         onClick: handleLogout, isLogout: true },

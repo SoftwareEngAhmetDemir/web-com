@@ -277,5 +277,16 @@
     "saveFromToday": "SAVE FROM TODAY",
     "panelLogs": "PANEL TRANSACTION LOGS",
     "logout": "LOG OUT"
+  },
+  "panelLog": {
+    "title": "Panel Transaction Logs",
+    "action": "Action",
+    "content": "Content",
+    "ip": "IP Address",
+    "endpoint": "Endpoint",
+    "httpMethod": "Method",
+    "statusCode": "Status",
+    "userAgent": "User Agent",
+    "date": "Date"
   }
 }

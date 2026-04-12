@@ -66,7 +66,7 @@ export default function ChangeEmail() {
       }
 
       useAuthStore.setState({ successMessage: t("changeEmail.successMessage") });
-      setTimeout(() => navigate("/dashboard"), 2000);
+      setTimeout(() => navigate("/controlPanel"), 2000);
     } catch {
       useAuthStore.setState({ error: t("changeEmail.errorGeneric") });
     }
@@ -106,7 +106,7 @@ export default function ChangeEmail() {
       </div>
 
       <div className="flex my-5">
-        <Link to="/dashboard" className="text-blue-500 hover:underline">
+        <Link to="/controlPanel" className="text-blue-500 hover:underline">
           {t("changeEmail.backToDashboard")}
         </Link>
       </div>

@@ -36,7 +36,7 @@ export default function ControlPanel() {
     { label: t("panel.changeDeleteCode"),    onClick: () => {} },
     { label: t("panel.requestVaultPassword"), onClick: () => {} },
     { label: t("panel.saveFromToday"),       onClick: () => {} },
-    { label: t("panel.panelLogs"),           onClick: () => {} },
+    { label: t("panel.panelLogs"),           onClick: () => navigate("/ControlPanel/Log") },
     { label: t("panel.logout"),              onClick: handleLogout, isLogout: true },
   ];
 

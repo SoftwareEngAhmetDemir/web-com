@@ -277,5 +277,16 @@
     "saveFromToday": "BUGDAN KURTAR",
     "panelLogs": "PANEL İŞLEM LOGLARI",
     "logout": "ÇIKIŞ YAP"
+  },
+  "panelLog": {
+    "title": "Panel İşlem Logları",
+    "action": "İşlem",
+    "content": "İçerik",
+    "ip": "IP Adresi",
+    "endpoint": "Endpoint",
+    "httpMethod": "Metod",
+    "statusCode": "Durum",
+    "userAgent": "Tarayıcı",
+    "date": "Tarih"
   }
 }

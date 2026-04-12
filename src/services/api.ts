@@ -48,6 +48,17 @@ export interface UserProfile {
   howDidYouFindUs?: string;
 }
 
+export interface UserLogItem {
+  action?: string;
+  content?: string;
+  ipAddress?: string;
+  endpoint?: string;
+  httpMethod?: string;
+  statusCode?: number;
+  userAgent?: string;
+  createdAt?: string;
+}
+
 export interface LoginResponse {
   success: boolean;
   message: string;
@@ -226,5 +237,5 @@ export const usersApi = {
       body: JSON.stringify(data),
     }),
 
-  getLogs: () => request("/api/users/logs"),
+  getLogs: () => request<ApiResponse<UserLogItem[]>>("/api/users/logs"),
 };
