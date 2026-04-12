@@ -12,7 +12,7 @@ export default function ControlPanel() {
 
   const handleLogout = async () => {
     await logout();
-    navigate("/");
+    navigate("/web");
   };
 
   const infoRows = [

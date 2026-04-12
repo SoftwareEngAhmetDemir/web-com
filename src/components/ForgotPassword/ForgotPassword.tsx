@@ -77,7 +77,7 @@ export default function ForgetPasswordForm() {
 
       <div className="flex my-5">
         {t("forgotPassword.alreadyHaveAccount")}
-        <Link to="/" className="ml-1 text-blue-500 hover:underline">
+        <Link to="/web" className="ml-1 text-blue-500 hover:underline">
           {t("forgotPassword.logIn")}
         </Link>
       </div>

@@ -187,7 +187,7 @@ export default function RegisterForm() {
         howDidYouFindUs: data["referans"] as string,
         membershipAgreementAccepted: data["check"] === true,
       });
-      navigate("/");
+      navigate("/web");
     } catch {
       // error is set in the store
     }
@@ -230,7 +230,7 @@ export default function RegisterForm() {
 
       <div className="flex my-5">
         {t("register.alreadyHaveAccount")}
-        <Link to="/" className="ml-1 text-blue-500 hover:underline">
+        <Link to="/web" className="ml-1 text-blue-500 hover:underline">
           {t("register.logIn")}
         </Link>
       </div>

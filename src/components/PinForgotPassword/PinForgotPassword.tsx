@@ -77,7 +77,7 @@ export default function ForgetPinForm() {
 
       <div className="flex my-5">
         {t("forgotPin.alreadyHaveAccount")}{" "}
-        <Link to="/" className="text-blue-500 hover:underline">
+        <Link to="/web" className="text-blue-500 hover:underline">
           {t("forgotPin.logIn")}
         </Link>
         .

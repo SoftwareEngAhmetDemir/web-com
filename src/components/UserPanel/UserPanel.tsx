@@ -10,7 +10,7 @@ export default function UserPanel() {
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate("/web");
   };
 
   const buttons = [
