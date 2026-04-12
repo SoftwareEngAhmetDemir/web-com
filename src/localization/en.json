@@ -25,7 +25,18 @@
     "register": "Register",
     "forgotPassword": "Forgot Password",
     "forgotPin": "Forgot Pin",
-    "fillAllFields": "Please fill in all fields!"
+    "fillAllFields": "Please fill in all fields!",
+    "validation": {
+      "accountNameRequired": "Account name is required",
+      "accountNameMin": "Account name must be at least 3 characters",
+      "accountNameMax": "Account name must be at most 32 characters",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "pinRequired": "PIN code is required",
+      "pinMin": "PIN must be at least 4 digits",
+      "pinMax": "PIN must be at most 6 digits",
+      "pinPattern": "PIN must contain only digits (4–6 digits)"
+    }
   },
   "register": {
     "title": "Register",
@@ -45,7 +56,35 @@
     "forgotPasswordText": "Forgot your password?",
     "resetPassword": "Reset your password",
     "forgotPinText": "Forgot your PIN?",
-    "resetPin": "Reset your PIN"
+    "resetPin": "Reset your PIN",
+    "validation": {
+      "realNameRequired": "Full name is required",
+      "realNameMin": "Full name must be at least 2 characters",
+      "realNameMax": "Full name must be at most 64 characters",
+      "accountNameRequired": "Account name is required",
+      "accountNameMin": "Account name must be at least 5 characters",
+      "accountNameMax": "Account name must be at most 12 characters",
+      "accountNamePattern": "Account name may only contain letters, digits, and underscores (5–12 characters)",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "emailMax": "Email must be at most 100 characters",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "passwordMax": "Password must be at most 64 characters",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordMismatch": "Passwords do not match",
+      "pinRequired": "PIN code is required",
+      "pinMin": "PIN must be at least 4 digits",
+      "pinMax": "PIN must be at most 6 digits",
+      "pinPattern": "PIN must contain only digits (4–6 digits)",
+      "phoneRequired": "Phone number is required",
+      "phoneMin": "Phone number is too short",
+      "phonePattern": "Please enter a valid phone number",
+      "deleteCodeRequired": "Delete code is required",
+      "deleteCodeMin": "Delete code must be at least 4 characters",
+      "deleteCodeMax": "Delete code must be at most 16 characters",
+      "agreementRequired": "You must accept the membership agreement"
+    }
   },
   "forgotPassword": {
     "title": "Forgot Password",
@@ -55,7 +94,15 @@
     "alreadyHaveAccount": "Already have an account? Now",
     "logIn": "log in",
     "noAccount": "Don't have an account? Now",
-    "register": "register"
+    "register": "register",
+    "validation": {
+      "accountNameRequired": "Account name is required",
+      "accountNameMin": "Account name must be at least 5 characters",
+      "accountNameMax": "Account name must be at most 12 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "emailMax": "Email must be at most 100 characters"
+    }
   },
   "forgotPin": {
     "title": "Forgot PIN",
@@ -65,7 +112,15 @@
     "alreadyHaveAccount": "Already have an account? Now",
     "logIn": "log in",
     "noAccount": "Don't have an account? Now",
-    "register": "register"
+    "register": "register",
+    "validation": {
+      "accountNameRequired": "Account name is required",
+      "accountNameMin": "Account name must be at least 5 characters",
+      "accountNameMax": "Account name must be at most 12 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "emailMax": "Email must be at most 100 characters"
+    }
   },
   "stats": {
     "title": "Statistics",

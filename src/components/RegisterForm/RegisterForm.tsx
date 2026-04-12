@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -10,54 +11,98 @@ export default function RegisterForm() {
   const { register, isLoading, error, successMessage, clearMessages } =
     useAuthStore();
 
+  const [customErrors, setCustomErrors] = useState<Record<string, string>>({});
+
   const registerFields: FormField[] = [
     {
       name: "realName",
       type: "text",
       placeholder: t("register.realName"),
       required: true,
+      minLength: 2,
+      maxLength: 64,
+      errorMessage: t("register.validation.realNameRequired"),
+      minLengthMessage: t("register.validation.realNameMin"),
+      maxLengthMessage: t("register.validation.realNameMax"),
     },
     {
       name: "account_name",
       type: "text",
       placeholder: t("register.accountName"),
       required: true,
+      minLength: 5,
+      maxLength: 12,
+      pattern: "[A-Za-z0-9_]{5,12}",
+      errorMessage: t("register.validation.accountNameRequired"),
+      minLengthMessage: t("register.validation.accountNameMin"),
+      maxLengthMessage: t("register.validation.accountNameMax"),
+      patternMismatchMessage: t("register.validation.accountNamePattern"),
     },
     {
       name: "e-mail",
-      type: "text",
+      type: "email",
       placeholder: t("register.email"),
       required: true,
+      maxLength: 100,
+      errorMessage: t("register.validation.emailRequired"),
+      typeMismatchMessage: t("register.validation.emailInvalid"),
+      maxLengthMessage: t("register.validation.emailMax"),
     },
     {
       name: "password",
       type: "password",
       placeholder: t("register.password"),
       required: true,
+      minLength: 6,
+      maxLength: 64,
+      errorMessage: t("register.validation.passwordRequired"),
+      minLengthMessage: t("register.validation.passwordMin"),
+      maxLengthMessage: t("register.validation.passwordMax"),
     },
     {
       name: "passwordTwo",
       type: "password",
       placeholder: t("register.repeatPassword"),
       required: true,
+      minLength: 6,
+      errorMessage: t("register.validation.confirmPasswordRequired"),
+      minLengthMessage: t("register.validation.passwordMin"),
     },
     {
       name: "pinPassword",
-      type: "password",
+      type: "text",
       placeholder: t("register.pinCode"),
       required: true,
+      minLength: 4,
+      maxLength: 6,
+      pattern: "\\d{4,6}",
+      errorMessage: t("register.validation.pinRequired"),
+      minLengthMessage: t("register.validation.pinMin"),
+      maxLengthMessage: t("register.validation.pinMax"),
+      patternMismatchMessage: t("register.validation.pinPattern"),
     },
     {
       name: "phone",
       type: "text",
       placeholder: t("register.phone"),
       required: true,
+      minLength: 7,
+      maxLength: 20,
+      pattern: "[\\d\\s\\+\\-\\(\\)]{7,20}",
+      errorMessage: t("register.validation.phoneRequired"),
+      minLengthMessage: t("register.validation.phoneMin"),
+      patternMismatchMessage: t("register.validation.phonePattern"),
     },
     {
       name: "deleteCode",
       type: "text",
       placeholder: t("register.deleteCode"),
       required: true,
+      minLength: 4,
+      maxLength: 16,
+      errorMessage: t("register.validation.deleteCodeRequired"),
+      minLengthMessage: t("register.validation.deleteCodeMin"),
+      maxLengthMessage: t("register.validation.deleteCodeMax"),
     },
     {
       name: "referans",
@@ -106,11 +151,30 @@ export default function RegisterForm() {
       isCheckbox: true,
       placeholder: t("register.membershipAgreement"),
       required: true,
+      errorMessage: t("register.validation.agreementRequired"),
     },
   ];
 
   const handleRegister = async (data: Record<string, string | boolean>) => {
     clearMessages();
+
+    const errors: Record<string, string> = {};
+
+    if (data["password"] !== data["passwordTwo"]) {
+      errors["passwordTwo"] = t("register.validation.passwordMismatch");
+    }
+
+    if (!data["check"]) {
+      errors["check"] = t("register.validation.agreementRequired");
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setCustomErrors(errors);
+      return;
+    }
+
+    setCustomErrors({});
+
     try {
       await register({
         fullName: data["realName"] as string,
@@ -123,7 +187,6 @@ export default function RegisterForm() {
         howDidYouFindUs: data["referans"] as string,
         membershipAgreementAccepted: data["check"] === true,
       });
-      // On success, navigate to login
       navigate("/");
     } catch {
       // error is set in the store
@@ -160,6 +223,7 @@ export default function RegisterForm() {
             fields={registerFields}
             submitText={t("register.registerButton")}
             onSubmit={handleRegister}
+            customErrors={customErrors}
           />
         </div>
       </div>

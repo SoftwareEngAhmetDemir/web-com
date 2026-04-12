@@ -25,7 +25,18 @@
     "register": "Kayıt Ol",
     "forgotPassword": "Şifremi Unuttum",
     "forgotPin": "Pin'imi Unuttum",
-    "fillAllFields": "Lütfen tüm alanları doldurun!"
+    "fillAllFields": "Lütfen tüm alanları doldurun!",
+    "validation": {
+      "accountNameRequired": "Hesap adı zorunludur",
+      "accountNameMin": "Hesap adı en az 3 karakter olmalıdır",
+      "accountNameMax": "Hesap adı en fazla 32 karakter olmalıdır",
+      "passwordRequired": "Şifre zorunludur",
+      "passwordMin": "Şifre en az 6 karakter olmalıdır",
+      "pinRequired": "PIN kodu zorunludur",
+      "pinMin": "PIN en az 4 basamak olmalıdır",
+      "pinMax": "PIN en fazla 6 basamak olmalıdır",
+      "pinPattern": "PIN yalnızca rakamlardan oluşmalıdır (4–6 basamak)"
+    }
   },
   "register": {
     "title": "Kayıt Ol",
@@ -45,7 +56,35 @@
     "forgotPasswordText": "Şifrenizi mi unuttunuz?",
     "resetPassword": "Şifrenizi sıfırlayın",
     "forgotPinText": "PIN'inizi mi unuttunuz?",
-    "resetPin": "PIN'inizi sıfırlayın"
+    "resetPin": "PIN'inizi sıfırlayın",
+    "validation": {
+      "realNameRequired": "Ad Soyad zorunludur",
+      "realNameMin": "Ad Soyad en az 2 karakter olmalıdır",
+      "realNameMax": "Ad Soyad en fazla 64 karakter olmalıdır",
+      "accountNameRequired": "Hesap adı zorunludur",
+      "accountNameMin": "Hesap adı en az 5 karakter olmalıdır",
+      "accountNameMax": "Hesap adı en fazla 12 karakter olmalıdır",
+      "accountNamePattern": "Hesap adı yalnızca harf, rakam ve alt çizgi içerebilir (5–12 karakter)",
+      "emailRequired": "E-posta zorunludur",
+      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin",
+      "emailMax": "E-posta en fazla 100 karakter olmalıdır",
+      "passwordRequired": "Şifre zorunludur",
+      "passwordMin": "Şifre en az 6 karakter olmalıdır",
+      "passwordMax": "Şifre en fazla 64 karakter olmalıdır",
+      "confirmPasswordRequired": "Lütfen şifrenizi onaylayın",
+      "passwordMismatch": "Şifreler eşleşmiyor",
+      "pinRequired": "PIN kodu zorunludur",
+      "pinMin": "PIN en az 4 basamak olmalıdır",
+      "pinMax": "PIN en fazla 6 basamak olmalıdır",
+      "pinPattern": "PIN yalnızca rakamlardan oluşmalıdır (4–6 basamak)",
+      "phoneRequired": "Telefon numarası zorunludur",
+      "phoneMin": "Telefon numarası çok kısa",
+      "phonePattern": "Lütfen geçerli bir telefon numarası girin",
+      "deleteCodeRequired": "Silme kodu zorunludur",
+      "deleteCodeMin": "Silme kodu en az 4 karakter olmalıdır",
+      "deleteCodeMax": "Silme kodu en fazla 16 karakter olmalıdır",
+      "agreementRequired": "Üyelik sözleşmesini kabul etmeniz gerekiyor"
+    }
   },
   "forgotPassword": {
     "title": "Şifremi Unuttum",
@@ -55,7 +94,15 @@
     "alreadyHaveAccount": "Zaten hesabınız var mı?",
     "logIn": "Giriş yapın",
     "noAccount": "Hesabınız yok mu?",
-    "register": "kayıt olun"
+    "register": "kayıt olun",
+    "validation": {
+      "accountNameRequired": "Hesap adı zorunludur",
+      "accountNameMin": "Hesap adı en az 5 karakter olmalıdır",
+      "accountNameMax": "Hesap adı en fazla 12 karakter olmalıdır",
+      "emailRequired": "E-posta zorunludur",
+      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin",
+      "emailMax": "E-posta en fazla 100 karakter olmalıdır"
+    }
   },
   "forgotPin": {
     "title": "PIN'imi Unuttum",
@@ -65,7 +112,15 @@
     "alreadyHaveAccount": "Zaten hesabınız var mı?",
     "logIn": "Giriş yapın",
     "noAccount": "Hesabınız yok mu?",
-    "register": "kayıt olun"
+    "register": "kayıt olun",
+    "validation": {
+      "accountNameRequired": "Hesap adı zorunludur",
+      "accountNameMin": "Hesap adı en az 5 karakter olmalıdır",
+      "accountNameMax": "Hesap adı en fazla 12 karakter olmalıdır",
+      "emailRequired": "E-posta zorunludur",
+      "emailInvalid": "Lütfen geçerli bir e-posta adresi girin",
+      "emailMax": "E-posta en fazla 100 karakter olmalıdır"
+    }
   },
   "stats": {
     "title": "İstatistikler",

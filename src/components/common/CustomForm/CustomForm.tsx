@@ -11,9 +11,14 @@ export type FormField = {
   required?: boolean;
   minLength?: number;
   maxLength?: number;
-  options?: string[]; // for select
+  pattern?: string;
+  options?: string[];
   isCheckbox?: boolean;
   errorMessage?: string;
+  minLengthMessage?: string;
+  maxLengthMessage?: string;
+  typeMismatchMessage?: string;
+  patternMismatchMessage?: string;
 };
 
 interface CustomFormProps {
@@ -21,13 +26,15 @@ interface CustomFormProps {
   onSubmit: (data: Record<string, string | boolean>) => void;
   submitText?: string;
   submitButtonClassName?: string;
+  customErrors?: Record<string, string>;
 }
 
 export const CustomForm: React.FC<CustomFormProps> = ({
   fields,
   onSubmit,
   submitButtonClassName,
-  submitText = "Submit"
+  submitText = "Submit",
+  customErrors = {},
 }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -66,10 +73,16 @@ export const CustomForm: React.FC<CustomFormProps> = ({
               ))}
             </select>
           ) : field.isCheckbox ? (
-            <div className="flex items-center gap-2">
-              <input type="checkbox" name={field.name} />
-              <label>{field.placeholder}</label>
-            </div>
+            <Form.Control asChild>
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name={field.name}
+                  required={field.required}
+                />
+                <label>{field.placeholder}</label>
+              </div>
+            </Form.Control>
           ) : (
             <Form.Control asChild>
               <CustomInput
@@ -80,14 +93,41 @@ export const CustomForm: React.FC<CustomFormProps> = ({
                 required={field.required}
                 minLength={field.minLength}
                 maxLength={field.maxLength}
+                pattern={field.pattern}
               />
             </Form.Control>
           )}
 
-          {field.required && field.errorMessage && (
-            <Form.Message match="valueMissing" className="text-red-500 text-sm">
-              {field.errorMessage}
+          <Form.Message match="valueMissing" className="text-red-500 text-sm">
+            {field.errorMessage || `${field.placeholder || field.name} is required`}
+          </Form.Message>
+
+          {field.minLength && field.minLengthMessage && (
+            <Form.Message match="tooShort" className="text-red-500 text-sm">
+              {field.minLengthMessage}
             </Form.Message>
+          )}
+
+          {field.maxLength && field.maxLengthMessage && (
+            <Form.Message match="tooLong" className="text-red-500 text-sm">
+              {field.maxLengthMessage}
+            </Form.Message>
+          )}
+
+          {field.typeMismatchMessage && (
+            <Form.Message match="typeMismatch" className="text-red-500 text-sm">
+              {field.typeMismatchMessage}
+            </Form.Message>
+          )}
+
+          {field.pattern && field.patternMismatchMessage && (
+            <Form.Message match="patternMismatch" className="text-red-500 text-sm">
+              {field.patternMismatchMessage}
+            </Form.Message>
+          )}
+
+          {customErrors[field.name] && (
+            <span className="text-red-500 text-sm">{customErrors[field.name]}</span>
           )}
         </Form.Field>
       ))}

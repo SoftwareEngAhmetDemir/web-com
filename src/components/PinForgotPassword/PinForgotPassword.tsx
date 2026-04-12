@@ -17,7 +17,9 @@ export default function ForgetPinForm() {
       required: true,
       minLength: 5,
       maxLength: 12,
-      errorMessage: "Account Name is required",
+      errorMessage: t("forgotPin.validation.accountNameRequired"),
+      minLengthMessage: t("forgotPin.validation.accountNameMin"),
+      maxLengthMessage: t("forgotPin.validation.accountNameMax"),
     },
     {
       name: "e-mail",
@@ -25,7 +27,9 @@ export default function ForgetPinForm() {
       placeholder: t("forgotPin.email"),
       required: true,
       maxLength: 100,
-      errorMessage: "Email is required",
+      errorMessage: t("forgotPin.validation.emailRequired"),
+      typeMismatchMessage: t("forgotPin.validation.emailInvalid"),
+      maxLengthMessage: t("forgotPin.validation.emailMax"),
     },
   ];
 

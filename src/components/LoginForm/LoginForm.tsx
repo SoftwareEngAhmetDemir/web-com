@@ -12,12 +12,6 @@ export default function LoginForm() {
 
   const handleLogin = async (data: Record<string, string | boolean>) => {
     clearMessages();
-
-    if (!data["name"] || !data["password"] || !data["pin"]) {
-      alert(t("login.fillAllFields"));
-      return;
-    }
-
     try {
       await login({
         userNameOrEmail: data["name"] as string,
@@ -36,21 +30,33 @@ export default function LoginForm() {
       type: "text",
       placeholder: t("login.accountName"),
       required: true,
-      errorMessage: "Name is required",
+      minLength: 3,
+      maxLength: 32,
+      errorMessage: t("login.validation.accountNameRequired"),
+      minLengthMessage: t("login.validation.accountNameMin"),
+      maxLengthMessage: t("login.validation.accountNameMax"),
     },
     {
       name: "password",
       type: "password",
       placeholder: t("login.password"),
       required: true,
-      errorMessage: "Password is required",
+      minLength: 6,
+      errorMessage: t("login.validation.passwordRequired"),
+      minLengthMessage: t("login.validation.passwordMin"),
     },
     {
       name: "pin",
       type: "text",
       placeholder: t("login.pinCode"),
       required: true,
-      errorMessage: "Pin is required",
+      minLength: 4,
+      maxLength: 6,
+      pattern: "\\d{4,6}",
+      errorMessage: t("login.validation.pinRequired"),
+      minLengthMessage: t("login.validation.pinMin"),
+      maxLengthMessage: t("login.validation.pinMax"),
+      patternMismatchMessage: t("login.validation.pinPattern"),
     },
   ];
 

@@ -17,7 +17,9 @@ export default function ForgetPasswordForm() {
       required: true,
       minLength: 5,
       maxLength: 12,
-      errorMessage: "Account Name is required",
+      errorMessage: t("forgotPassword.validation.accountNameRequired"),
+      minLengthMessage: t("forgotPassword.validation.accountNameMin"),
+      maxLengthMessage: t("forgotPassword.validation.accountNameMax"),
     },
     {
       name: "e-mail",
@@ -25,7 +27,9 @@ export default function ForgetPasswordForm() {
       placeholder: t("forgotPassword.email"),
       required: true,
       maxLength: 100,
-      errorMessage: "Email is required",
+      errorMessage: t("forgotPassword.validation.emailRequired"),
+      typeMismatchMessage: t("forgotPassword.validation.emailInvalid"),
+      maxLengthMessage: t("forgotPassword.validation.emailMax"),
     },
   ];
 
