@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CustomForm, type FormField } from "../common/CustomForm/CustomForm";
+import { MembershipAgreementModal } from "../MembershipAgreementModal/MembershipAgreementModal";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useAuthStore } from "../../store/authStore";
@@ -12,6 +13,7 @@ export default function RegisterForm() {
     useAuthStore();
 
   const [customErrors, setCustomErrors] = useState<Record<string, string>>({});
+  const [showAgreement, setShowAgreement] = useState(false);
 
   const registerFields: FormField[] = [
     {
@@ -149,9 +151,21 @@ export default function RegisterForm() {
       name: "check",
       type: "checkbox",
       isCheckbox: true,
-      placeholder: t("register.membershipAgreement"),
       required: true,
       errorMessage: t("register.validation.agreementRequired"),
+      labelNode: (
+        <>
+          <button
+            type="button"
+            onClick={() => setShowAgreement(true)}
+            className="font-semibold underline underline-offset-2 cursor-pointer bg-transparent border-0 p-0"
+            style={{ color: "rgb(222, 105, 74)" }}
+          >
+            {t("register.membershipAgreementLink")}
+          </button>
+          {" "}{t("register.membershipAgreement")}
+        </>
+      ),
     },
   ];
 
@@ -195,6 +209,9 @@ export default function RegisterForm() {
 
   return (
     <div>
+      {showAgreement && (
+        <MembershipAgreementModal onClose={() => setShowAgreement(false)} />
+      )}
       <div className="text-center">
         <h1 className="text-[2rem] font-medium text-center">
           {t("register.title")}

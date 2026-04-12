@@ -7,6 +7,7 @@ export type FormField = {
   name: string;
   type: string;
   placeholder?: string;
+  labelNode?: React.ReactNode;
   defaultValue?: string;
   required?: boolean;
   minLength?: number;
@@ -36,7 +37,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
   submitText = "Submit",
   customErrors = {},
 }) => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data: Record<string, string | boolean> = {};
@@ -84,7 +85,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
                 />
               </Form.Control>
               <label htmlFor={field.name} className="cursor-pointer select-none">
-                {field.placeholder}
+                {field.labelNode ?? field.placeholder}
               </label>
             </div>
           ) : (

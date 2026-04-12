@@ -40,6 +40,10 @@
   font-weight: 600;
 }
 
+.dl-row-transparent {
+  background: transparent !important;
+}
+
 .dl-btn {
   /* Reuse cp-btn visuals — defined in ControlPanel/style.scss,
      but we redeclare here so this component is self-contained */

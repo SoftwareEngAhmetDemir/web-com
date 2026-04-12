@@ -43,10 +43,10 @@ export default function Download() {
 
       {/* ── Download links ── */}
       <div className="dl-links">
-        {downloadLinks.map((link) => (
+        {downloadLinks.map((link, index) => (
           <RedCard
             key={link.label}
-            classes="dl-row !border-b"
+            classes={`dl-row !border-b${index === 1 ? " dl-row-transparent" : ""}`}
             text={
               <div className="dl-row-inner">
                 <span className="dl-row-label">{link.label}</span>
