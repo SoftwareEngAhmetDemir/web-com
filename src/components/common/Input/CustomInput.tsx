@@ -14,7 +14,7 @@ export const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
           block
           w-full
           focus:text-white!
-          bg-[#250000]
+          bg-[var(--bg-input)]
           border border-[#4b0000]
           rounded-none
           placeholder-yellow-400

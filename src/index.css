@@ -47,6 +47,7 @@ a,
   --border-crimson: rgba(255, 0, 0, 0.3);
   --border-crimson-light: rgba(255, 0, 0, 0.15);
   --border-crimson-strong: rgba(255, 0, 0, 0.5);
+  --bg-input: #250000;
   --bg-deep: #0a0a0f;
   --bg-mid: #0f0f1a;
   --bg-card: #12121e;

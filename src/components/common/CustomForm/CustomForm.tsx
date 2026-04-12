@@ -64,7 +64,7 @@ export const CustomForm: React.FC<CustomFormProps> = ({
             <select
               name={field.name}
               required={field.required}
-              className="block w-full border border-gray-400 rounded px-3 py-2 text-black"
+              className="block w-full border border-[#4b0000] rounded-none px-3 py-2 bg-[var(--bg-input)] text-yellow-400 focus:outline-none focus:border-yellow-400"
             >
               {field.options?.map((opt) => (
                 <option key={opt} value={opt}>
@@ -73,16 +73,20 @@ export const CustomForm: React.FC<CustomFormProps> = ({
               ))}
             </select>
           ) : field.isCheckbox ? (
-            <Form.Control asChild>
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
+              <Form.Control asChild>
                 <input
+                  id={field.name}
                   type="checkbox"
                   name={field.name}
                   required={field.required}
+                  className="cursor-pointer"
                 />
-                <label>{field.placeholder}</label>
-              </div>
-            </Form.Control>
+              </Form.Control>
+              <label htmlFor={field.name} className="cursor-pointer select-none">
+                {field.placeholder}
+              </label>
+            </div>
           ) : (
             <Form.Control asChild>
               <CustomInput
