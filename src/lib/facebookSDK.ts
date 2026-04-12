@@ -13,7 +13,7 @@ export function loadFacebookSDK(locale = "tr_TR"): Promise<void> {
       document.body.prepend(root);
     }
 
-    (window as Record<string, unknown>)["fbAsyncInit"] = function () {
+    (window as unknown as Record<string, unknown>)["fbAsyncInit"] = function () {
       (window as any).FB.init({ xfbml: true, version: "v20.0" });
       initialized = true;
       resolve();
